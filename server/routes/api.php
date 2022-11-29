@@ -22,6 +22,13 @@ Route::controller(RegisterController::class)->group(function(){
     Route::post('register', 'register');
     Route::post('login', 'login');
 });
+Route::controller(ProductController::class)->group(function(){
+    Route::post('store-product', 'store'); //création du produit ok
+    Route::put('update/{id}', 'update'); //update
+    Route::get('get-products', 'index'); // voir tt les produits ok
+    Route::get('get-product/{id}', 'show'); // voir un produit en particulier ok
+    Route::delete('delete-product/{id}', 'destroy'); // supprimer le produit
+});
         
 Route::middleware('auth:sanctum')->group( function () {
     Route::resource('products', ProductController::class);
