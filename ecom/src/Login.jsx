@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 
 
-export const Login= () => {
+export const Login= (props) => {
 
     const [email, setEmail] = useState(''); //pour recuperer l'e-mail inscrit dans l'input
     const [pass, setPass] = useState('');//pour recuper le password inscrit dans l'input
@@ -15,7 +15,7 @@ export const Login= () => {
     }
 
     return (
-        <>
+        <div className="auth-form-container">
         <form onSubmit={handleSubmit}>
         <h1>Login page</h1>
         <label htmlFor="e-mail"> E-mail</label>
@@ -24,9 +24,9 @@ export const Login= () => {
         <input  value ={pass} onChange={(e)=> setPass(e.target.value)} type="password" placeholder="*******" id="password" name="password"></input>
         <button type="submit">Log In</button>
         </form>
-        <button>Don't have an account? Register here.</button>
+        <button onClick={()=>props.onFormSwitch('register')}>Don't have an account? Register here.</button>
 
-        </>
+        </div>
         
     )
     }
