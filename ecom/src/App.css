@@ -39,3 +39,16 @@
   aspect-ratio: 1/1;
   background-color: blue;
 }
+
+.Home nav .left,
+.Home nav .right {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Home nav .right button {
+  background: none;
+  border: none;
+}
