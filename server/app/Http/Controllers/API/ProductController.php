@@ -106,8 +106,9 @@ class ProductController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
+        $product = Product::find($id);
         $product->delete();
    
         return $this->sendResponse([], 'Product deleted successfully.');
