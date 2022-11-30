@@ -16,6 +16,7 @@
                                                     DB_USERNAME   =  "write your database user_name here"
                                                     DB_PASSWORD   =  "write your database user_password here"
 4. run : php artisan migrate (to create all necesary tables on your database)
+5. run : php artisan serve (to run and start your API)
 
 
 ## Nous utilisons Laravel 9.x pour configurer notre API
