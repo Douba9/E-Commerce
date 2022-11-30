@@ -7,26 +7,26 @@ import motherboard from './img/motherboard.png'
 export const Home = () => {
     return (
         <>
-            <nav>
-                <div className="left">
-                    <a href="#">Products</a>
-                    <a href="#">About</a>
-                    <form onSubmit={() => { return false; }}>
-                        <input type="text" placeholder="Search"/>
-                        <input type="button" value="Search"/>
-                    </form>
-                </div>
-                <div className="mid">
-                    <a className="logo" href="#">
-                        <img className="logo" src={logo}></img>
+            <nav className="navbar navbar-expand-lg bg-light">
+                <div className="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src={logo} alt="logo" width="200"/>
                     </a>
-                </div>
-                <div className="right">
-                    <button>
-                        <img src={cart} width="30"></img>
-                    </button>
-                    <a href="#">Log in</a>
-                    <a href="#">Register</a>
+                    <form className="d-flex" role="search">
+                        <input type="text" className="form-control me-2" placeholder="Search"/>
+                        <button class="btn btn-outline-primary" type="submit">Search</button>
+                    </form>
+                    <ul className="navbar-nav">
+                        <li className="nav-item">
+                            <img src={cart} alt="cart" width="30"/>
+                        </li>
+                        <li className="nav-item">
+                            <a href="#" className="nav-link">Log in</a>
+                        </li>
+                        <li className="nav-item">
+                            <a href="#" className="nav-link">Register</a>
+                        </li>
+                    </ul>
                 </div>
             </nav>
             <main>
