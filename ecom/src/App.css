@@ -33,19 +33,33 @@
   background-color: lightgrey;
 }
 
-/* Style temporaire */
-.Home nav .logo {
-  width: 50px;
-  aspect-ratio: 1/1;
-  background-color: blue;
+.Home nav .left,
+.Home nav .right,
+.Home nav .mid {
+  width: 30%;
 }
 
 .Home nav .left,
 .Home nav .right {
-  width: 30%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.Home nav .mid {
+  position: relative;
+  background-color: red;
+}
+
+.Home nav .mid .logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.Home nav .mid .logo img {
+  width: 100px;
 }
 
 .Home nav .right button {

@@ -1,5 +1,6 @@
 import React from "react"
 import cart from './img/icon-cart.svg'
+import logo from './img/logo.png'
 
 export const Home = () => {
     return (
@@ -10,12 +11,13 @@ export const Home = () => {
                     <a href="#">About</a>
                 </div>
                 <div className="mid">
-                    {/* Substitution temporaire à remplacer à l'avenir par le logo */}
-                    <div className="logo"></div>
+                    <a className="logo" href="#">
+                        <img className="logo" src={logo}></img>
+                    </a>
                 </div>
                 <div className="right">
                     <button>
-                        <img src={cart} width="50"></img>
+                        <img src={cart} width="30"></img>
                     </button>
                     <a href="#">Log in</a>
                     <a href="#">Register</a>
