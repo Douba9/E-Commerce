@@ -8,7 +8,7 @@
 2. cd  folder_name
 2. example: cd E-commerce
 3. create .env file and update your DATABASE section (database_name, user_login, password_login) . 
-3. example : touch .env and replace values here : 
+3. example : touch .env and rewrite values here : 
                                                     DB_CONNECTION = mysql
                                                     DB_HOST       =  127.0.0.1
                                                     DB_PORT       =  "write your port number here"
