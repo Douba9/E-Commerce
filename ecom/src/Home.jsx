@@ -1,6 +1,7 @@
 import React from "react"
 import cart from './img/icon-cart.svg'
 import logo from './img/logo.png'
+import products from './img/products.png'
 
 export const Home = () => {
     return (
@@ -28,7 +29,32 @@ export const Home = () => {
                 </div>
             </nav>
             <main>
-
+                <div className="row">
+                    <div className="card">
+                        <img src={products} alt="products" className="card-img-top"/>
+                        <div className="card-body">
+                            <h5 className="card-title">Lorem ipsum</h5>
+                            <p className="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil blanditiis reiciendis, illum provident odio obcaecati.</p>
+                            <button className="btn btn-primary">Details</button>
+                        </div>
+                    </div>
+                    <div className="card">
+                        <img src={products} alt="products" className="card-img-top"/>
+                        <div className="card-body">
+                            <h5 className="card-title">Lorem ipsum</h5>
+                            <p className="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil blanditiis reiciendis, illum provident odio obcaecati.</p>
+                            <button className="btn btn-primary">Details</button>
+                        </div>
+                    </div>
+                    <div className="card">
+                        <img src={products} alt="products" className="card-img-top"/>
+                        <div className="card-body">
+                            <h5 className="card-title">Lorem ipsum</h5>
+                            <p className="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil blanditiis reiciendis, illum provident odio obcaecati.</p>
+                            <button className="btn btn-primary">Details</button>
+                        </div>
+                    </div>
+                </div>
             </main>
         </>
     );
