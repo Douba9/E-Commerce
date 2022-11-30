@@ -9,6 +9,10 @@ export const Home = () => {
                 <div className="left">
                     <a href="#">Products</a>
                     <a href="#">About</a>
+                    <form onSubmit={() => { return false; }}>
+                        <input type="text" placeholder="Search"/>
+                        <input type="button" value="Search"/>
+                    </form>
                 </div>
                 <div className="mid">
                     <a className="logo" href="#">
@@ -24,7 +28,7 @@ export const Home = () => {
                 </div>
             </nav>
             <main>
-                
+
             </main>
         </>
     );
