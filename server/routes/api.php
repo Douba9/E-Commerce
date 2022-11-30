@@ -23,11 +23,11 @@ Route::controller(RegisterController::class)->group(function(){
     Route::post('login', 'login');
 });
 Route::controller(ProductController::class)->group(function(){
-    Route::post('store-product', 'store'); //création du produit ok
-    Route::put('update/{id}', 'update'); //update
-    Route::get('get-products', 'index'); // voir tt les produits ok
-    Route::get('get-product/{id}', 'show'); // voir un produit en particulier ok
-    Route::delete('delete-product/{id}', 'destroy'); // supprimer le produit
+    Route::post('store-product', 'store');
+    Route::put('update/{id}', 'update'); 
+    Route::get('get-products', 'index'); 
+    Route::get('get-product/{id}', 'show');
+    Route::delete('delete-product/{id}', 'destroy'); 
 });
         
 Route::middleware('auth:sanctum')->group( function () {
