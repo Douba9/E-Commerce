@@ -24,22 +24,22 @@
 <!-- route -->
 
 1. /register => Inscription
-1. <!-- Opérationnel -->
+1. Opérationnel
 
 2. /login => Connection
-2. <!-- Opérationnel -->
+2. Opérationnel
 
 3. /store-product => Ajouter un produit
-3. <!-- Opérationnel -->
+3. Opérationnel
 
 4. /update/{id} => Mettre à jour le produit
-4. <!-- Opérationnel -->
+4. Opérationnel
 
 5. /get-products => Affichez la liste de tout les produits
-5. <!-- Opérationnel -->
+5. Opérationnel
 
 6. /get-product/{id} => Affiche un produit selectionner
-6. <!-- Opérationnel -->
+6. Opérationnel
 
 7. /delete-product/{id} => Supprime le prosuit séléctionner
-7. <!-- Opérationnel -->
+7. Opérationnel
