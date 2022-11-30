@@ -1,9 +1,12 @@
 /* Optimization */
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
+/* Global */
 
 .App,
 .Home {
@@ -12,12 +15,36 @@
   background-image: linear-gradient(79deg #fcfced, #fcedfc 48%, #ebf6ff);
 }
 
-/* Alignement spécifique à login & register, séparé du reste */
+/* Login & register */
+
 .App {
   justify-content: center;
   align-items: center;
   text-align: center;
 }
+
+.App .auth-form-container,
+.App form {
+  display: flex;
+  flex-direction: column;
+}
+
+.App .auth-form-container {
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.App form {
+  height: 100%;
+  justify-content: space-around;
+}
+
+.App form img {
+  width: 30%;
+}
+
+/* Home */
 
 .Home {
   flex-direction: column;
