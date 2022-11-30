@@ -127,6 +127,10 @@
   align-items: center;
 }
 
+.Home main .row {
+  margin: 1em 0 ;
+}
+
 .Home main .card {
   margin: 0 1em;
   width: 18rem;
