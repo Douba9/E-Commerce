@@ -26,7 +26,7 @@ export const Register = (props) => {
                 </div>
                 <div>
                     <label htmlFor="e-mail"> E-mail</label>
-                    <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="enter your e-mail" id="e-mail" name="email"></input>
+                    <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Enter your e-mail" id="e-mail" name="email"></input>
                 </div>
                 <div>
                     <label htmlFor="password"> Password</label>
