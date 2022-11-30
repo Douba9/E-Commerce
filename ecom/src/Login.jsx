@@ -20,7 +20,7 @@ export const Login = (props) => {
                 <img src={logo} alt="logo"/>
                 <div>
                     <label htmlFor="e-mail">E-mail</label>
-                    <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Enter your e-mail" id="e-mail" name="email"></input>
+                    <input autoFocus value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Enter your e-mail" id="e-mail" name="email"></input>
                 </div>
                 <div>
                     <label htmlFfor="password">Password</label>

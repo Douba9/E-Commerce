@@ -22,7 +22,7 @@ export const Register = (props) => {
                 <img src={logo} alt="logo"/>
                 <div>
                     <label htmlFor="name">Full name</label>
-                    <input value={name} onChange={(e) => setName(e.target.value)} id="name" name="name" placeholder="Enter your name" ></input>
+                    <input autoFocus value={name} onChange={(e) => setName(e.target.value)} id="name" name="name" placeholder="Enter your name" ></input>
                 </div>
                 <div>
                     <label htmlFor="e-mail"> E-mail</label>
