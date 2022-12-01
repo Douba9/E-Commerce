@@ -1,4 +1,6 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
+import { createRoot } from 'react-dom/client';
+import { Home } from './Home';
 
 
 export const Login = (props) => {
@@ -32,12 +34,16 @@ export const Login = (props) => {
 
                     console.log(message);
 
-                    if (message == "User login successfully.") {
-                        
+                    if (message === "User login successfully.") {
+                        const container = document.getElementById('root');
+                        const root = createRoot(container);
+
+                        root.render(<Home />);
+
                     } else {
                         alert("Impossible de se connecter");
                     }
-                });
+                }).catch(err => console.log(err));
             }}>
                 <h1>Login page</h1>
                 <label htmlFor="e-mail"> E-mail</label>

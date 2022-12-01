@@ -33,7 +33,7 @@ export const Register = (props) => {
                 await fetch(register_url, requestOptions).then((response) => response.json()).then((data) => {
                     let message = data.message;
 
-                    if (message == "User register successfully.") {
+                    if (message === "User register successfully.") {
                         props.onFormSwitch('login');
                     } else {
                         alert("Impossible de s'inscrire");
