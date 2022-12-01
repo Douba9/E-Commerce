@@ -6,7 +6,9 @@
 1. example: git clone https://github.com/Douba9/E-Commerce
 
 2. cd  folder_name
-2. example: cd E-commerce
+2. example: cd E-commerce: _ cd server && npm i && composer i
+                           _ cd front && npm i
+                           _ cd admin-panel
 3. create .env file and update your DATABASE section (database_name, user_login, password_login) . 
 3. example : touch .env and rewrite values here : 
                                                     DB_CONNECTION = mysql
