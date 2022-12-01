@@ -86,7 +86,7 @@
 }
 
 .Home main .row {
-  margin: 1em 0 ;
+  margin: 1em 0;
 }
 
 .Home main .card {
@@ -96,4 +96,13 @@
 
 .Home main .card img.card-img-top {
   border-bottom: 1px solid var(--bs-card-border-color);
+}
+
+.Home footer .row {
+  padding: 1em;
+  align-items: center;
+}
+
+.Home footer .row .socials a {
+  margin: 0 .5em;
 }

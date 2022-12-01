@@ -3,6 +3,9 @@ import cart from './img/icon-cart.svg'
 import logo from './img/logo.png'
 import products from './img/products.png'
 import motherboard from './img/motherboard.png'
+import facebook from './img/facebook.svg'
+import linkedin from './img/linkedin.svg'
+import twitter from './img/twitter.svg'
 
 export const Home = () => {
     return (
@@ -19,6 +22,9 @@ export const Home = () => {
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             <img src={cart} alt="cart" width="30"/>
+                        </li>
+                        <li className="nav-item">
+                            <div className="vr d-none d-lg-flex h-100 mx-lg-2 text-black"></div>
                         </li>
                         <li className="nav-item">
                             <a href="#" className="nav-link">Log in</a>
@@ -95,6 +101,26 @@ export const Home = () => {
                     </div>
                 </div>
             </main>
+            <footer className="container-fluid bg-light">
+                <div className="row">
+                    <div className="col">&#169;2022 DoubaCorp</div>
+                    <div className="col">
+                        <h6>About DoubaCorp</h6>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, ullam.
+                    </div>
+                    <div className="col text-center socials">
+                        <a href="#">
+                            <img src={facebook} alt="facebook" width="30"/>
+                        </a>
+                        <a href="#">
+                            <img src={linkedin} alt="linkedin" width="30"/>
+                        </a>
+                        <a href="#">
+                            <img src={twitter} alt="twitter" width="30"/>
+                        </a>
+                    </div>
+                </div>
+            </footer>
         </>
     );
 }
