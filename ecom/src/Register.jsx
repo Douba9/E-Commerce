@@ -30,11 +30,14 @@ export const Register = (props) => {
                             c_password: pass_c,
                         })
                 };
-                await fetch(register_url, requestOptions).then((response) => {
-                    let res = response.json();
+                await fetch(register_url, requestOptions).then((response) => response.json()).then((data) => {
+                    let message = data.message;
 
-                    console.log(res);
-
+                    if (message == "User register successfully.") {
+                        props.onFormSwitch('login');
+                    } else {
+                        alert("Impossible de s'inscrire");
+                    }
                 });
             }}>
                 <h1>Register page</h1>
