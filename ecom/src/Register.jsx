@@ -2,10 +2,10 @@ import React, { useState } from "react"
 import logo from './img/logo.png'
 
 export const Register = (props) => {
-
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [name, setName] = useState('');
+    const [pass_c, setPass_c] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
