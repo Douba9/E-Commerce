@@ -44,3 +44,5 @@
 
 7. /delete-product/{id} => Supprime le prosuit séléctionner
 7. Opérationnel
+
+![alt text](asset/routes.png)
