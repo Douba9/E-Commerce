@@ -22,12 +22,13 @@ Route::controller(RegisterController::class)->group(function(){
     Route::post('register', 'register');
     Route::post('login', 'login');
 });
-Route::controller(ProductController::class)->group(function(){
+
+Route::controller(ProductController::class)->group(function() {
     Route::post('store-product', 'store');
-    Route::put('update/{id}', 'update'); 
-    Route::get('get-products', 'index'); 
+    Route::put('update-product/{id}', 'update');
+    Route::get('products', 'index');
     Route::get('get-product/{id}', 'show');
-    Route::delete('delete-product/{id}', 'destroy'); 
+    Route::delete('delete-product/{id}', 'destroy');
 });
         
 Route::middleware('auth:sanctum')->group( function () {

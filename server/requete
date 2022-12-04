@@ -1,4 +1,0 @@
-"Header": " Accepte : application/json " 
-          " Authorization : Bearer.$accessToken "
-
-"form-data": 
