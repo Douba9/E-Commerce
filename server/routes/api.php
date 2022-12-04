@@ -24,9 +24,9 @@ Route::controller(RegisterController::class)->group(function(){
 });
 
 Route::controller(ProductController::class)->group(function() {
-    Route::post('store-product', 'store');
+    Route::post('store-product', 'store'); // création du produit
     Route::put('update-product/{id}', 'update');
-    Route::get('products', 'index');
+    Route::get('show-products', 'index'); 
     Route::get('get-product/{id}', 'show');
     Route::delete('delete-product/{id}', 'destroy');
 });
