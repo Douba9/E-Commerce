@@ -24,17 +24,20 @@
                 <strong>Price:</strong>
                 {{ $product->price }}
             </div>
-        </div><div class="col-xs-12 col-sm-12 col-md-12">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Stock:</strong>
                 {{ $product->stock }}
             </div>
-        </div><div class="col-xs-12 col-sm-12 col-md-12">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Image:</strong>
                 {{ $product->image }}
             </div>
-        </div><div class="col-xs-12 col-sm-12 col-md-12">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Details:</strong>
                 {{ $product->detail }}

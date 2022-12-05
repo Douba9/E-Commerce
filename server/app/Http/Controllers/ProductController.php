@@ -49,7 +49,7 @@ class ProductController extends Controller
         Product::create($request->all());
        
         return redirect()->route('products.index')
-                        ->with('success','Product created successfully.');
+                        ->with('success','Produit correctement crée.');
     }
   
     /**
@@ -107,6 +107,6 @@ class ProductController extends Controller
         $product->delete();
        
         return redirect()->route('products.index')
-                        ->with('success','Product deleted successfully');
+                        ->with('success','Produit correctement effacer');
     }
 }
