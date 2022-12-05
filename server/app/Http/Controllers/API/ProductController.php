@@ -45,7 +45,7 @@ class ProductController extends BaseController
    
         $product = Product::create($input);
    
-        return $this->sendResponse(new ProductResource($product), 'Product created successfully.');
+        return $this->sendResponse(new ProductResource($product), 'Produit crée avec succès.');
     } 
    
     /**
@@ -59,10 +59,10 @@ class ProductController extends BaseController
         $product = Product::find($id);
   
         if (is_null($product)) {
-            return $this->sendError('Product not found.');
+            return $this->sendError('Aucun produit trouver.');
         }
    
-        return $this->sendResponse(new ProductResource($product), 'Product retrieved successfully.');
+        return $this->sendResponse(new ProductResource($product), 'Produits recus avec succès');
     }
     
     /**
@@ -95,7 +95,7 @@ class ProductController extends BaseController
         $product->image  = $input['image'];           
         $product->save();
    
-        return $this->sendResponse(new ProductResource($product), 'Product updated successfully.');
+        return $this->sendResponse(new ProductResource($product), 'mis à jour du produit avec succès.');
     }
    
     /**
@@ -108,6 +108,6 @@ class ProductController extends BaseController
     {
         $product->delete();
    
-        return $this->sendResponse([], 'Product deleted successfully.');
+        return $this->sendResponse([], 'Produit supprimer avec succès.');
     }
 }

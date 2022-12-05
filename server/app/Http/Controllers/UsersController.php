@@ -92,7 +92,7 @@ class UsersController extends Controller
         $users->update($request->all());
       
         return redirect()->route('users.index')
-                        ->with('success','Utilisateur correctement mis à jour');
+                        ->with('success','Utilisateur mise à jour avec succès.');
     }
 
     /**
@@ -108,6 +108,6 @@ class UsersController extends Controller
         $user->delete();
        
         return redirect()->route('users.index')
-                        ->with('success','Utilisateur correctement supprimer');
+                        ->with('success','Utilisateur supprimer avec succès.');
     }
 }

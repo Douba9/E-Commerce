@@ -49,7 +49,7 @@ class ProductController extends Controller
         Product::create($request->all());
        
         return redirect()->route('products.index')
-                        ->with('success','Produit correctement crée.');
+                        ->with('success','Produit crée avec succès.');
     }
   
     /**
@@ -94,7 +94,7 @@ class ProductController extends Controller
         $product->update($request->all());
       
         return redirect()->route('products.index')
-                        ->with('success','Product updated successfully');
+                        ->with('success','Produit mis à jour avec succès.');
     }
     /**
      * Remove the specified resource from storage.
@@ -107,6 +107,6 @@ class ProductController extends Controller
         $product->delete();
        
         return redirect()->route('products.index')
-                        ->with('success','Produit correctement effacer');
+                        ->with('success','Produit effacer avec succès.');
     }
 }
