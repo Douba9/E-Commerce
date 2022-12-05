@@ -21,7 +21,9 @@ export const Home = () => {
                     </form>
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <img src={cart} alt="cart" width="30"/>
+                            <button className="btn">
+                                <img src={cart} alt="cart" width="30" />
+                            </button>
                         </li>
                         <li className="nav-item">
                             <div className="vr d-none d-lg-flex h-100 mx-lg-2 text-black"></div>
