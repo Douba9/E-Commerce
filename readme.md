@@ -30,7 +30,7 @@
 ## Nous utilisons Laravel 9.x pour configurer notre API
 
 
-![alt text](readme/asset/routes.png)
+![alt text](/readme/asset/routes.png)
 
 
 
@@ -43,39 +43,39 @@ Headers {
 
 1. /api/register => Inscription  : Opérationnel
 
-    ![alt text](readme/asset/register.png)
+    ![alt text](/readme/asset/register.png)
 
 2. /api/login => Connection  : Opérationnel
 
-    ![alt text](readme/asset/login.png)
+    ![alt text](/readme/asset/login.png)
 
 3. /api/store-product => Ajouter un produit  : Opérationnel
 
-    ![alt text](readme/asset/create.png)
+    ![alt text](/readme/asset/create.png)
 
 4. /api/update/{id} => Mettre à jour le produit  : Opérationnel
 
-    ![alt text](readme/asset/update.png)
+    ![alt text](/readme/asset/update.png)
 
 5. /api/show-products => Affichez la liste de tout les produits  : Opérationnel
 
-    ![alt text](readme/asset/show-all.png)
+    ![alt text](/readme/asset/show-all.png)
 
 6. /api/get-product/{id} => Affiche un produit selectionner  : Opérationnel
 
-    ![alt text](readme/asset/show-one.png)
+    ![alt text](/readme/asset/show-one.png)
 
 7. /api/delete-product/{id} => Supprime le prosuit séléctionner  : Opérationnel
 
-    ![alt text](readme/asset/delete.png)
+    ![alt text](/readme/asset/delete.png)
 
 
 ## CRUD from back-end
 1. /admin/users => all users  : Opérationnel
 
-    ![alt text](readme/asset/admin-users.png)
+    ![alt text](/readme/asset/admin-users.png)
 
 
 2. /admin/products => all products  : Opérationnel
 
-    ![alt text](readme/asset/admin-products.png)
+    ![alt text](/readme/asset/admin-products.png)
