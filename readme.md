@@ -26,6 +26,13 @@
 
 ## Nous utilisons Laravel 9.x pour configurer notre API
 
+
+
+Header{
+   Accept : application/json
+   Authorization : 'Bearer '.$accessToken
+}
+
 <!-- route -->
 
 1. /api/register => Inscription  : Opérationnel
