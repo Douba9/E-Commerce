@@ -3,20 +3,24 @@
 ## Installation 
 
 1. git clone repository_link "name (as you want for your folder, not required)" 
-1. example: git clone https://github.com/Douba9/E-Commerce
+1. example: git clone https://github.com/Douba9/E-Commerce folder_name
 
 2. cd  folder_name
-2. example: cd E-commerce: _ cd server && npm i && composer i
-                           _ cd front && npm i
-3. create .env file and update your DATABASE section (database_name, user_login, password_login) . 
-3. example : touch .env and rewrite values here : 
+2. example: cd E-commerce: _ cd server && npm i && composer i && touch .env
+
+3. copy .env file and update your DATABASE section (database_name, user_login, password_login) . 
+3. example : nano .env 
+                            : and write this values in .env file : 
                                                     DB_CONNECTION = mysql
                                                     DB_HOST       =  127.0.0.1
-                                                    DB_PORT       =  "write your port number here"
+                                                    DB_PORT       =  3306
                                                     DB_DATABASE   =  "write your database name here"
                                                     DB_USERNAME   =  "write your database user_name here"
                                                     DB_PASSWORD   =  "write your database user_password here"
-4. run : php artisan migrate (to create all necesary tables on your database)
+
+        you can also copy all content from .env.example and repalce values or rename file in .env and change values with your.
+
+4. run : php artisan migrate (to create all necesary tables on your database after write your ID database)
 5. run : php artisan serve (to run and start your API)
 
 
@@ -24,25 +28,19 @@
 
 <!-- route -->
 
-1. /register => Inscription
-1. Opérationnel
+1. /api/register => Inscription  : Opérationnel
 
-2. /login => Connection
-2. Opérationnel
+    ![alt text](asset/register.png)
 
-3. /store-product => Ajouter un produit
-3. Opérationnel
+2. /api/login => Connection  : Opérationnel
+3. /api/store-product => Ajouter un produit  : Opérationnel
+4. /api/update/{id} => Mettre à jour le produit  : Opérationnel
+5. /api/get-products => Affichez la liste de tout les produits  : Opérationnel
+6. /api/get-product/{id} => Affiche un produit selectionner  : Opérationnel
+7. /api/delete-product/{id} => Supprime le prosuit séléctionner  : Opérationnel
 
-4. /update/{id} => Mettre à jour le produit
-4. Opérationnel
-
-5. /get-products => Affichez la liste de tout les produits
-5. Opérationnel
-
-6. /get-product/{id} => Affiche un produit selectionner
-6. Opérationnel
-
-7. /delete-product/{id} => Supprime le prosuit séléctionner
-7. Opérationnel
+## CRUD from back-end
+1. /admin/users => all users  : Opérationnel
+2. /admin/products => all products  : Opérationnel
 
 ![alt text](asset/routes.png)
