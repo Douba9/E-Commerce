@@ -35,10 +35,7 @@ export const Login = (props) => {
                     console.log(message);
 
                     if (message === "User login successfully.") {
-                        const container = document.getElementById('root');
-                        const root = createRoot(container);
-
-                        root.render(<Home />);
+                        
 
                     } else {
                         alert("Impossible de se connecter");
