@@ -30,6 +30,9 @@
 ## Nous utilisons Laravel 9.x pour configurer notre API
 
 
+![alt text](readme/asset/routes.png)
+
+
 
 Headers {
    Accept : application/json
@@ -69,6 +72,10 @@ Headers {
 
 ## CRUD from back-end
 1. /admin/users => all users  : Opérationnel
+
+    ![alt text](readme/asset/admin-users.png)
+
+
 2. /admin/products => all products  : Opérationnel
 
-![alt text](readme/asset/routes.png)
+    ![alt text](readme/asset/admin-products.png)
