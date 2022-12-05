@@ -16,4 +16,6 @@ use App\Http\Controllers\ProductController;
 */
   
 Route::resource('admin/products', ProductController::class);
+// Route::resource('admin/users', UsersController::class);
+
 
