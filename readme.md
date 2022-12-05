@@ -1,6 +1,8 @@
 ## E-COMMERCE PROJECT  (DIGITAL/ITECH)
 
+
 ## Installation 
+
 
 1. git clone repository_link "name (as you want for your folder, not required)" 
 1. example: git clone https://github.com/Douba9/E-Commerce folder_name
@@ -24,11 +26,12 @@
 5. run : php artisan serve (to run and start your API)
 
 
+
 ## Nous utilisons Laravel 9.x pour configurer notre API
 
 
 
-Header{
+Headers {
    Accept : application/json
    Authorization : 'Bearer '.$accessToken
 }
@@ -40,11 +43,29 @@ Header{
     ![alt text](asset/register.png)
 
 2. /api/login => Connection  : Opérationnel
+
+    ![alt text](asset/login.png)
+
 3. /api/store-product => Ajouter un produit  : Opérationnel
+
+    ![alt text](asset/create.png)
+
 4. /api/update/{id} => Mettre à jour le produit  : Opérationnel
-5. /api/get-products => Affichez la liste de tout les produits  : Opérationnel
+
+    ![alt text](asset/update.png)
+
+5. /api/show-products => Affichez la liste de tout les produits  : Opérationnel
+
+    ![alt text](asset/show-all.png)
+
 6. /api/get-product/{id} => Affiche un produit selectionner  : Opérationnel
+
+    ![alt text](asset/show-one.png)
+
 7. /api/delete-product/{id} => Supprime le prosuit séléctionner  : Opérationnel
+
+    ![alt text](asset/delete.png)
+
 
 ## CRUD from back-end
 1. /admin/users => all users  : Opérationnel
