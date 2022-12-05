@@ -9,10 +9,24 @@
 /* Global */
 
 .App,
-.Home {
+.Home,
+.Article {
   display: flex;
   min-height: 100vh;
   background-image: linear-gradient(79deg #fcfced, #fcedfc 48%, #ebf6ff);
+}
+
+.Home,
+.Article {
+  flex-direction: column;
+  align-items: center;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 999999;
+  width: 100%;
 }
 
 /* Login & register */
@@ -66,18 +80,6 @@
 
 /* Home */
 
-.Home {
-  flex-direction: column;
-  align-items: center;
-}
-
-.Home nav {
-  position: sticky;
-  top: 0;
-  z-index: 999999;
-  width: 100%;
-}
-
 .Home main {
   display: flex;
   flex-direction: column;
@@ -104,4 +106,33 @@
 
 .Home footer .row .socials a {
   margin: 0 .5em;
+}
+
+/* Article */
+
+.Article main {
+  width: 100%;
+}
+
+.Article main h1 {
+  margin-top: 1em;
+}
+
+.Article main .display {
+  margin: 1em;
+  width: 100%;
+}
+
+.Article main .display p,
+.Article main .display img {
+  max-width: 30vw;
+}
+
+.Article main .control {
+  margin: 1em;
+  font-size: x-large;
+}
+
+.Article main .control span:not(#quantity) {
+  margin: 0 1em;
 }
