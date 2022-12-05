@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
   
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UsersController;
   
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,4 @@ use App\Http\Controllers\ProductController;
 */
   
 Route::resource('admin/products', ProductController::class);
-// Route::resource('admin/users', UsersController::class);
-
-
+Route::resource('admin/users', UsersController::class);
