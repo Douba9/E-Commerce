@@ -79,3 +79,9 @@ Headers {
 2. /admin/products => all products  : Opérationnel
 
     ![alt text](asset/readme/admin-products.png)
+    
+## Activer le compte administrateur
+
+cd server && php artisan db:seed --class=PermissionTableSeeder && php artisan db:seed --class=CreateAdminUserSeeder 
+
+it will create admin user with this log => email : admin@admin.com & password : 123456 

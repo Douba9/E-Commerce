@@ -36,7 +36,8 @@ class ProductController extends BaseController
             'detail' => 'required',
             'price' => 'required',
             'stock' =>'required',
-            'image' =>'required'
+            'image' =>'required',
+            'categorie' => 'required',
         ]);
    
         if($validator->fails()){

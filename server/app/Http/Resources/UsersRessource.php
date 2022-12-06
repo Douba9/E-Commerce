@@ -19,9 +19,9 @@ class UsersResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'password' => $this->password,
-            // 'c_password' => $this->c_password,
-            // 'created_at' => $this->created_at->format('d/m/Y'),
-            // 'updated_at' => $this->updated_at->format('d/m/Y'),
+            'c_password' => $this->c_password,
+            'created_at' => $this->created_at->format('d/m/Y'),
+            'updated_at' => $this->updated_at->format('d/m/Y'),
         ];
     }
 }

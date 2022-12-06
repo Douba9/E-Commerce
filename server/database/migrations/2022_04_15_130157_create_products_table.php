@@ -1,9 +1,9 @@
 <?php
-  
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-  
+
 return new class extends Migration
 {
     /**
@@ -17,13 +17,14 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('detail');
-            $table->text('price');
-            $table->text('stock');
-            $table->text('image');
+            $table->string('price');
+            $table->string('image');
+            $table->integer('stock');
+            $table->string('categorie');
             $table->timestamps();
         });
     }
-  
+
     /**
      * Reverse the migrations.
      *
