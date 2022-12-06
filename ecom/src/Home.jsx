@@ -1,28 +1,38 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import cart from './img/icon-cart.svg'
 import logo from './img/logo.png'
-import products from './img/products.png'
+import productsImg from './img/products.png'
 import motherboard from './img/motherboard.png'
 import facebook from './img/facebook.svg'
 import linkedin from './img/linkedin.svg'
 import twitter from './img/twitter.svg'
+import noimg from './img/noimg.png';
 import "bootstrap/dist/css/bootstrap.css";
 
-const productsArray = ['jqsgdjhqsgd', 'qhsgdjqsgd'];
-
 export const Home = () => {
-    getProducts();
+    const [products, setProducts] = useState([]);
+    const register_url = "http://127.0.0.1:8000/api/show-products";
+
+    useEffect(() => {
+        const requestOptions = {
+            method: 'GET'
+        };
+        fetch(register_url, requestOptions).then((response) => response.json()).then((data) => {
+            setProducts(data.data);
+        }).catch(err => console.log(err));
+    }, []);
+
     return (
         <div className="Home">
 
             <nav className="navbar navbar-expand-lg bg-light">
                 <div className="container-fluid">
-                    <a className="navbar-brand">
+                    <a class="navbar-brand">
                         <img src={logo} alt="logo" width="200" />
                     </a>
                     <form className="d-flex" role="search">
                         <input type="text" className="form-control me-2" placeholder="Search" />
-                        <button className="btn btn-outline-primary" type="submit">Search</button>
+                        <button class="btn btn-outline-primary" type="submit">Search</button>
                     </form>
                     <ul className="navbar-nav">
                         <li className="nav-item">
@@ -42,80 +52,24 @@ export const Home = () => {
             </nav>
             <main className="container">
                 <div id="products" className="row">
+                    {products.map((product) => (
+                        
+                        <div className="card">
+                            <img src={noimg} alt="products" className="card-img-top" />
 
-                    <div className="card">
-                        <img src={products} alt="products" className="card-img-top" />
-                        <div className="card-body">
-                            <h5 className="card-title">Lorem ipsum</h5>
-                            <p className="card-text">Price: 700$</p>
-                            <p className="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil blanditiis reiciendis, illum provident odio obcaecati.</p>
-                            <a>
-                                <button className="btn btn-primary">Details</button>
-                            </a>
+                            <div className="card-body">
+                                <h5 className="card-title">
+                                    {product.name}
+                                </h5>
+                                <p className="card-text" id="price">Price: {product.price}</p>
+                                <p className="card-text" id="detail">Details: {product.detail}</p>
+                                <p className="card-text" id="stock">Stock: {product.stock}</p>
+                                <a>
+                                    <button id={product.id} className="btn btn-primary">Technical Sheet</button>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div className="card">
-                        <img src={products} alt="products" className="card-img-top" />
-                        <div className="card-body">
-                            <h5 className="card-title">Lorem ipsum</h5>
-                            <p className="card-text">Price: 700$</p>
-                            <p className="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo pariatur, deleniti minus nesciunt officia quia?</p>
-                            <a>
-                                <button className="btn btn-primary">Details</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div className="card">
-                        <img src={products} alt="products" className="card-img-top" />
-                        <div className="card-body">
-                            <h5 className="card-title">Lorem ipsum</h5>
-                            <p className="card-text">Price: 700$</p>
-                            <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi velit necessitatibus odio. Recusandae, at placeat!</p>
-                            <a>
-                                <button className="btn btn-primary">Details</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div className="card">
-                        <img src={products} alt="products" className="card-img-top" />
-                        <div className="card-body">
-                            <h5 className="card-title">Lorem ipsum</h5>
-                            <p className="card-text">Price: 700$</p>
-                            <p className="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil blanditiis reiciendis, illum provident odio obcaecati.</p>
-                            <a>
-                                <button className="btn btn-primary">Details</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div className="card">
-                        <img src={products} alt="products" className="card-img-top" />
-                        <div className="card-body">
-                            <h5 className="card-title">Lorem ipsum</h5>
-                            <p className="card-text">Price: 700$</p>
-                            <p className="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo pariatur, deleniti minus nesciunt officia quia?</p>
-                            <a>
-                                <button className="btn btn-primary">Details</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div className="card">
-                        <img src={products} alt="products" className="card-img-top" />
-                        <div className="card-body">
-                            <h5 className="card-title">Lorem ipsum</h5>
-                            <p className="card-text">Price: 700$</p>
-                            <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi velit necessitatibus odio. Recusandae, at placeat!</p>
-                            <a>
-                                <button className="btn btn-primary">Details</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div className="card">
-                        {productsArray.map(item => {
-                            return <p>
-                                {item}
-                            </p>
-                        })}                       salut salut
-                    </div>
+                    ))}
                 </div>
             </main>
             <footer className="container-fluid bg-light">
@@ -142,34 +96,27 @@ export const Home = () => {
     );
 }
 
-async function getProducts() {
-    const register_url = "http://127.0.0.1:8000/api/products";
+// async function getProducts() {
 
-    console.log("oui");
+//     const register_url = "http://127.0.0.1:8000/api/show-products";
 
-    const requestOptions = {
-        method: 'GET'
-    };
-    console.log("oui");
+//     const requestOptions = {
+//         method: 'GET'
+//     };
+//     await fetch(register_url, requestOptions).then((response) => response.json()).then((data) => {
 
-    await fetch(register_url, requestOptions).then((response) => response.json()).then((data) => {
-        console.log("oui");
+//         let products = data.data;
 
-        let products = data.data;
+//         products.forEach(element => {
+//             let name = element.name;
+//             let description = element.description;
+//             let image = element.image;
+//             let price = element.price;
+//             let stock = element.stock;
+//             let created_at = element.created_at;
 
-        products.forEach(element => {
-            let name = element.name;
-            let description = element.description;
-            let image = element.image;
-            let price = element.price;
-            let stock = element.stock;
-            let created_at = element.created_at;
+//             productsArray.push([name, description, image, price, stock, created_at]);
 
-            this.setState({ productsArray: [...this.state.productsArray, element] });
-
-            console.log(element);
-
-        });
-
-    }).catch(err => console.log(err));
-}
+//         });
+//     }).catch(err => console.log(err));
+// }
