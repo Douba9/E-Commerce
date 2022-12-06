@@ -49,7 +49,7 @@ Headers {
 
     ![alt text](asset/readme/login.png)
 
-3. /api/store-product => Ajouter un produit  : Opérationnel
+3. /api/store-product => Ajouter un produit  : Opérationnel (a changer categorie par id categorie)
 
     ![alt text](asset/readme/create.png)
 
@@ -71,14 +71,10 @@ Headers {
 
 
 ## CRUD from back-end
-1. /admin/users => all users  : Opérationnel
+1. /home => dashborad
 
-    ![alt text](asset/readme/admin-users.png)
+    ![alt text](asset/readme/dashboard.png)
 
-
-2. /admin/products => all products  : Opérationnel
-
-    ![alt text](asset/readme/admin-products.png)
     
 ## Activer le compte administrateur
 

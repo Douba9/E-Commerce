@@ -19,7 +19,7 @@ class ProductController extends BaseController
     {
         $products = Product::all();
     
-        return $this->sendResponse(ProductResource::collection($products), 'Products retrieved successfully.');
+        return $this->sendResponse(ProductResource::collection($products), 'Produit recus avec succès.');
     }
     /**
      * Store a newly created resource in storage.
@@ -37,7 +37,7 @@ class ProductController extends BaseController
             'price' => 'required',
             'stock' =>'required',
             'image' =>'required',
-            'categorie' => 'required',
+            'categorie_id' => 'required',
         ]);
    
         if($validator->fails()){
@@ -82,7 +82,8 @@ class ProductController extends BaseController
             'detail' => 'required',
             'price' => 'required',
             'stock' =>'required',
-            'image' =>'required'
+            'image' =>'required',
+            'categorie_id' => 'required',
         ]);
    
         if($validator->fails()){

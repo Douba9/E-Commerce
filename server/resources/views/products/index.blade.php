@@ -43,7 +43,8 @@
 	        <td>{{ $product->price }}</td>
 	        <td>{{ $product->stock }}</td>
 	        <td>{{ $product->image }}</td>
-	        <td>{{ $product->categorie }}</td>
+	        <td>{$product->category->name}}</td>
+
 	        <td>
                 <form action="{{ route('products.destroy',$product->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('products.show',$product->id) }}">voir</a>
