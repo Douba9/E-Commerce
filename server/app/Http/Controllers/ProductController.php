@@ -92,7 +92,7 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, Product $product)
     {
          request()->validate([
             'name' => 'required',
@@ -100,7 +100,7 @@ class ProductController extends Controller
             'price' => 'required',
             'image'=> 'required',
             'stock'=> 'required',
-            'categorie_id'=> 'required',
+            'categorie_id'=> '',
         ]);
     
         $product->update($request->all());

@@ -95,6 +95,7 @@ class ProductController extends BaseController
         $product->price  = $input['price'];
         $product->stock  = $input['stock'];
         $product->image  = $input['image'];           
+        $product->categorie  = $input['categorie_id'];           
         $product->save();
    
         return $this->sendResponse(new ProductResource($product), 'mis à jour du produit avec succès.');

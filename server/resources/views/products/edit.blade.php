@@ -65,7 +65,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
 		        <div class="form-group">
 		            <strong>Categorie:</strong>
-		            <textarea class="form-control" style="height:150px" name="categorie" placeholder="categorie">{{ $product->categorie }}</textarea>
+		            <textarea class="form-control" style="height:150px" name="categorie_id" placeholder="categorie">{{ $product->categorie_id }}</textarea>
 		        </div>
 		    </div>
 		    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
