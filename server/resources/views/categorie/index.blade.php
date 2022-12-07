@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Produit</h2>
+                <h2>Catégorie</h2>
             </div>
             <div class="pull-right">
                 @can('categorie-create')
@@ -27,7 +27,6 @@
         <tr>
             <th>No</th>
             <th>Nom</th>
-            <th>categorie_id</th>
 
             <th width="280px">Action</th>
         </tr>
@@ -35,7 +34,6 @@
 	    <tr>
 	        <td>{{ ++$i }}</td>
 	        <td>{{ $categorie->name }}</td>
-	        <td>{{ $categorie->product_id }}</td>
 
 	        <td>
                 <form action="{{ route('categorie.destroy',$categorie->id) }}" method="POST">

@@ -21,7 +21,7 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        $categorie = Categorie::latest()->paginate(5);
+        $categorie = Categorie::first()->paginate(5);
         return view('categorie.index',compact('categorie'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
   
@@ -49,7 +49,7 @@ class CategorieController extends Controller
       
         Categorie::create($request->all());
     
-        return redirect()->route('categorie.index')->with('success','Produit crée avec succès.');
+        return redirect()->route('categorie.index')->with('success','Catégorie crée avec succès.');
     }
   
     /**
@@ -89,7 +89,7 @@ class CategorieController extends Controller
       
         $categorie->update($request->all());
     
-        return redirect()->route('categorie.index')->with('success','Produit mis à jour avec succès');
+        return redirect()->route('categorie.index')->with('success','Catégorie mise à jour avec succès');
     }
     /**
      * Remove the specified resource from storage.
@@ -101,6 +101,6 @@ class CategorieController extends Controller
     {
         $categorie->delete();
     
-        return redirect()->route('categorie.index')->with('success','Produit supprimer avec succès');
+        return redirect()->route('categorie.index')->with('success','Catégorie supprimer avec succès');
     }
 }

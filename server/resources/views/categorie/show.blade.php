@@ -19,11 +19,4 @@
                 {{ $categorie->name }}
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Product_id:</strong>
-                {{ $categorie->product_id }}
-            </div>
-        </div>
-    </div>
 @endsection

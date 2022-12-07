@@ -17,6 +17,8 @@ class CreateAdminUserSeeder extends Seeder
      */
     public function run()
     {
+
+        //CREATE SUPER USER with all permissions : admin
         $user = User::create([
             'name' => 'Doubacorp', 
             'email' => 'admin@admin.com',
@@ -30,5 +32,13 @@ class CreateAdminUserSeeder extends Seeder
         $role->syncPermissions($permissions);
      
         $user->assignRole([$role->id]);
+
+
+        //CREATE USER with simple permissions : view categories and products
+
+        $role = Role::create(['name' => 'User']);
+
+        $role->givePermissionTo('categorie-list','product-list');
+
     }
 }
