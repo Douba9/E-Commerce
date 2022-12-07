@@ -55,27 +55,25 @@
                         <li><a class="nav-link" href="{{ route('users.index') }}">Gestion des utilisateurs</a></li>
                             <li><a class="nav-link" href="{{ route('roles.index') }}">Gestion des rôles</a></li>
                             <li><a class="nav-link" href="{{ route('products.index') }}">Gestion des produits</a></li>
+                            <li><a class="nav-link" href="{{ route('categorie.index') }}">Gestion des catégorie</a></li>
                             <li><a class="nav-link" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Deconnexion') }}
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
                                     </a></li>
                             <!-- <li class="nav-item dropdown"> -->
                                 <!-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a> -->
 
-                                <!-- <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Deconnexion') }}
-                                    </a>
+                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div> -->
+                                   
+                                </div> 
                             <!-- </li> -->
                         @endguest
                     </ul>
