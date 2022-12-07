@@ -7,7 +7,13 @@ import facebook from './img/facebook.svg'
 import linkedin from './img/linkedin.svg'
 import twitter from './img/twitter.svg'
 import noimg from './img/noimg.png';
+import { Article } from "./Technical_sheet";
+import { createRoot } from 'react-dom/client';
 import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/js/dist/modal";
+
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 export const Home = () => {
     const [products, setProducts] = useState([]);
@@ -42,18 +48,19 @@ export const Home = () => {
                             <div className="vr d-none d-lg-flex h-100 mx-lg-2 text-black"></div>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link">Log in</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link">Register</a>
+                            <a style={{cursor:'pointer'}} className="nav-link" onClick={() => {
+                                cookies.set('isConnected', false, { path: '/', expires: new Date(Date.now() + 1) });
+                                window.location.reload(false);
+                            }}>Log out</a>
                         </li>
                     </ul>
                 </div>
             </nav>
             <main className="container">
                 <div id="products" className="row">
+
                     {products.map((product) => (
-                        
+
                         <div className="card">
                             <img src={noimg} alt="products" className="card-img-top" />
 
@@ -65,8 +72,38 @@ export const Home = () => {
                                 <p className="card-text" id="detail">Details: {product.detail}</p>
                                 <p className="card-text" id="stock">Stock: {product.stock}</p>
                                 <a>
-                                    <button id={product.id} className="btn btn-primary">Technical Sheet</button>
+
+                                    <button onClick={() => {
+                                        let register_url = "http://127.0.0.1:8000/api/get-product/" + product.id;
+                                        const requestOptions = {
+                                            method: 'GET'
+                                        };
+
+                                        fetch(register_url, requestOptions).then((response) => response.json()).then((data) => {
+                                            console.log(data.data);
+                                            let d = data.data;
+
+                                            const detail_container = document.getElementById(d.name.replace(/\s+/g, '')).style.cssText = "visibility: show;";
+                                            // const root = createRoot(detail_container);
+
+                                            // root.render(
+                                            //     <div className="card">
+                                            //         <p>{d.name}</p>
+                                            //     </div>
+                                            // );
+
+                                        }).catch(err => console.log(err));
+
+                                    }} className="btn btn-primary">Technical Sheet</button>
                                 </a>
+                                <div style={{ visibility: 'hidden' }} id={product.name.replace(/\s+/g, '')}>
+                                    <button onClick={() => {
+                                        document.getElementById(product.name.replace(/\s+/g, '')).style.cssText = "visibility: hidden;";
+                                    }} className="btn btn-danger">
+                                        X
+                                    </button>
+                                    <p>{product.name}</p>
+                                </div>
                             </div>
                         </div>
                     ))}
@@ -95,28 +132,3 @@ export const Home = () => {
         </div>
     );
 }
-
-// async function getProducts() {
-
-//     const register_url = "http://127.0.0.1:8000/api/show-products";
-
-//     const requestOptions = {
-//         method: 'GET'
-//     };
-//     await fetch(register_url, requestOptions).then((response) => response.json()).then((data) => {
-
-//         let products = data.data;
-
-//         products.forEach(element => {
-//             let name = element.name;
-//             let description = element.description;
-//             let image = element.image;
-//             let price = element.price;
-//             let stock = element.stock;
-//             let created_at = element.created_at;
-
-//             productsArray.push([name, description, image, price, stock, created_at]);
-
-//         });
-//     }).catch(err => console.log(err));
-// }
