@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { createRoot } from 'react-dom/client';
 import { Home } from './Home';
+import Cookies from 'universal-cookie';
 
+const cookies = new Cookies();
 
 export const Login = (props) => {
 
@@ -32,14 +34,14 @@ export const Login = (props) => {
                 await fetch(register_url, requestOptions).then((response) => response.json()).then((data) => {
                     let message = data.message;
 
+                    console.log(data.data.role);
                     console.log(message);
 
-                    if (message === "User login successfully.") {
+                    if (message === "Connexion de l'utilisateur avec succès.") {
                         const container = document.getElementById('root');
                         const root = createRoot(container);
-
+                        cookies.set('isConnected', true, { path: '/' });
                         root.render(<Home />);
-
                     } else {
                         alert("Impossible de se connecter");
                     }

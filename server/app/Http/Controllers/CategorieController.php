@@ -21,7 +21,7 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        $categorie = Categorie::first()->paginate(5);
+        $categorie = Categorie::latest()->paginate(5);
         return view('categorie.index',compact('categorie'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
   
