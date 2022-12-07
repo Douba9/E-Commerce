@@ -19,7 +19,7 @@ class ProductController extends BaseController
     {
         $products = Product::all();
     
-        return $this->sendResponse(ProductResource::collection($products), 'Products retrieved successfully.');
+        return $this->sendResponse(ProductResource::collection($products), 'Produit recus avec succès.');
     }
     /**
      * Store a newly created resource in storage.
@@ -36,7 +36,8 @@ class ProductController extends BaseController
             'detail' => 'required',
             'price' => 'required',
             'stock' =>'required',
-            'image' =>'required'
+            'image' =>'required',
+            'categorie_id' => 'required',
         ]);
    
         if($validator->fails()){
@@ -45,7 +46,7 @@ class ProductController extends BaseController
    
         $product = Product::create($input);
    
-        return $this->sendResponse(new ProductResource($product), 'Product created successfully.');
+        return $this->sendResponse(new ProductResource($product), 'Produit crée avec succès.');
     } 
    
     /**
@@ -59,10 +60,10 @@ class ProductController extends BaseController
         $product = Product::find($id);
   
         if (is_null($product)) {
-            return $this->sendError('Product not found.');
+            return $this->sendError('Aucun produit trouver.');
         }
    
-        return $this->sendResponse(new ProductResource($product), 'Product retrieved successfully.');
+        return $this->sendResponse(new ProductResource($product), 'Produits recus avec succès');
     }
     
     /**
@@ -81,7 +82,8 @@ class ProductController extends BaseController
             'detail' => 'required',
             'price' => 'required',
             'stock' =>'required',
-            'image' =>'required'
+            'image' =>'required',
+            'categorie_id' => 'required',
         ]);
    
         if($validator->fails()){
@@ -93,9 +95,10 @@ class ProductController extends BaseController
         $product->price  = $input['price'];
         $product->stock  = $input['stock'];
         $product->image  = $input['image'];           
+        $product->categorie  = $input['categorie_id'];           
         $product->save();
    
-        return $this->sendResponse(new ProductResource($product), 'Product updated successfully.');
+        return $this->sendResponse(new ProductResource($product), 'mis à jour du produit avec succès.');
     }
    
     /**
@@ -108,6 +111,6 @@ class ProductController extends BaseController
     {
         $product->delete();
    
-        return $this->sendResponse([], 'Product deleted successfully.');
+        return $this->sendResponse([], 'Produit supprimer avec succès.');
     }
 }

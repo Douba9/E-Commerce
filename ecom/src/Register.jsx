@@ -35,7 +35,7 @@ export const Register = (props) => {
 
                     console.log(message);
 
-                    if (message === "User register successfully.") {
+                    if (message === "Enregistrement de l'utilisateur avec succès.") {
                         props.onFormSwitch('login');
                     } else {
                         alert("Impossible de s'inscrire");

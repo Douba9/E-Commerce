@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from "react"
 import cart from './img/icon-cart.svg'
 import logo from './img/logo.png'
-import productsImg from './img/products.png'
-import motherboard from './img/motherboard.png'
 import facebook from './img/facebook.svg'
 import linkedin from './img/linkedin.svg'
 import twitter from './img/twitter.svg'
-import noimg from './img/noimg.png';
-import { Article } from "./Technical_sheet";
-import { createRoot } from 'react-dom/client';
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/js/dist/modal";
 
@@ -33,9 +28,9 @@ export const Home = () => {
 
             <nav className="navbar navbar-expand-lg bg-light">
                 <div className="container-fluid">
-                    <a class="navbar-brand">
+                    <div class="navbar-brand">
                         <img src={logo} alt="logo" width="200" />
-                    </a>
+                    </div>
                     <form className="d-flex" role="search">
                         <input type="text" className="form-control me-2" placeholder="Search" />
                         <button class="btn btn-outline-primary" type="submit">Search</button>
@@ -48,10 +43,10 @@ export const Home = () => {
                             <div className="vr d-none d-lg-flex h-100 mx-lg-2 text-black"></div>
                         </li>
                         <li className="nav-item">
-                            <a style={{cursor:'pointer'}} className="nav-link" onClick={() => {
+                            <div style={{ cursor: 'pointer' }} className="nav-link" onClick={() => {
                                 cookies.set('isConnected', false, { path: '/', expires: new Date(Date.now() + 1) });
                                 window.location.reload(false);
-                            }}>Log out</a>
+                            }}>Log out</div>
                         </li>
                     </ul>
                 </div>
@@ -62,7 +57,7 @@ export const Home = () => {
                     {products.map((product) => (
 
                         <div className="card">
-                            <img src={noimg} alt="products" className="card-img-top" />
+                            <img src={product.image} alt="products" className="card-img-top" />
 
                             <div className="card-body">
                                 <h5 className="card-title">
@@ -71,7 +66,7 @@ export const Home = () => {
                                 <p className="card-text" id="price">Price: {product.price}</p>
                                 <p className="card-text" id="detail">Details: {product.detail}</p>
                                 <p className="card-text" id="stock">Stock: {product.stock}</p>
-                                <a>
+                                <div>
 
                                     <button onClick={() => {
                                         let register_url = "http://127.0.0.1:8000/api/get-product/" + product.id;
@@ -83,19 +78,12 @@ export const Home = () => {
                                             console.log(data.data);
                                             let d = data.data;
 
-                                            const detail_container = document.getElementById(d.name.replace(/\s+/g, '')).style.cssText = "visibility: show;";
-                                            // const root = createRoot(detail_container);
-
-                                            // root.render(
-                                            //     <div className="card">
-                                            //         <p>{d.name}</p>
-                                            //     </div>
-                                            // );
+                                            document.getElementById(d.name.replace(/\s+/g, '')).style.cssText = "visibility: show;";
 
                                         }).catch(err => console.log(err));
 
                                     }} className="btn btn-primary">Technical Sheet</button>
-                                </a>
+                                </div>
                                 <div style={{ visibility: 'hidden' }} id={product.name.replace(/\s+/g, '')}>
                                     <button onClick={() => {
                                         document.getElementById(product.name.replace(/\s+/g, '')).style.cssText = "visibility: hidden;";
@@ -117,15 +105,15 @@ export const Home = () => {
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, ullam.
                     </div>
                     <div className="col text-center socials">
-                        <a>
+                        <div>
                             <img src={facebook} alt="facebook" width="30" />
-                        </a>
-                        <a>
+                        </div>
+                        <div>
                             <img src={linkedin} alt="linkedin" width="30" />
-                        </a>
-                        <a>
+                        </div>
+                        <div>
                             <img src={twitter} alt="twitter" width="30" />
-                        </a>
+                        </div>
                     </div>
                 </div>
             </footer>
