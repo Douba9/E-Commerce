@@ -38,6 +38,11 @@ export const Home = () => {
                 </div>
             </nav>
             <main>
+                <nav className="mt-2" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active" aria-current="page">Home</li>
+                    </ol>
+                </nav>
                 <div className="row">
                     <div className="card">
                         <img src={products} alt="products" className="card-img-top"/>

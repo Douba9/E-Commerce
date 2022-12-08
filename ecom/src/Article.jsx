@@ -39,6 +39,13 @@ export const Article = () => {
                 </div>
             </nav>
             <main className="d-flex flex-column align-items-center">
+                <nav className="mt-2" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item" aria-current="page">Home</li>
+                        <li class="breadcrumb-item" aria-current="page">Components</li>
+                        <li class="breadcrumb-item active" aria-current="page">Carte mère pour minage composant PC</li>
+                    </ol>
+                </nav>
                 <h1>Carte mère pour minage composant PC</h1>
                 <div id="about" className="display d-flex justify-content-around align-items-center">
                     <img src={motherboard} className="img-thumbnail" alt="motherboard" />
