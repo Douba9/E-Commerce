@@ -1,6 +1,6 @@
 <?php
     
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
     
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -19,7 +19,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $data = User::orderBy('id')->paginate(5);
+        $data = User::orderBy('id','DESC')->paginate(5);
         return view('users.index',compact('data'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
