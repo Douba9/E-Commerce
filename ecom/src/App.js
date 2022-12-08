@@ -1,8 +1,8 @@
 import './App.css';
-import React, { useState } from "react"
-import { Login } from "./Login"
-import { Register } from "./Register"
-import { Home } from "./Home";
+import React, { useState } from "react";
+import { Login } from "./component/Login";
+import { Register } from "./component/Register";
+import { Home } from "./component/Home";
 import { createRoot } from 'react-dom/client';
 import Cookies from 'universal-cookie';
 
@@ -15,11 +15,9 @@ function App() {
   }
 
   if (cookies.get('isConnected')) {
-    const container = document.getElementById('root');
-    const root = createRoot(container);
-    root.render(<Home />);
-  } else {
-    console.log("salut")
+    return <Home name={cookies.get('dotcom_user')}/>;
+  }
+  else {
     return (
       <div className="App">
         {
