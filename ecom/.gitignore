@@ -24,3 +24,4 @@ yarn-error.log*
 
 # extra
 *.note.md
+.vscode
