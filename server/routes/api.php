@@ -32,19 +32,19 @@ Route::controller(ProductController::class)->group(function() {
 });
 
 Route::controller(CategorieController::class)->group(function() {
-    Route::post('store-categorie', 'store'); // création du produit
-    Route::put('update-categorie/{id}', 'update'); // mise à jour du produit
-    Route::get('show-categories', 'index'); // affichage des produit
-    Route::get('get-categorie/{id}', 'show'); // affichage du produit
-    Route::delete('delete-categorie/{id}', 'destroy'); // suppression du produit
+    Route::post('store-categorie', 'store');
+    Route::put('update-categorie/{id}', 'update'); 
+    Route::get('show-categories', 'index'); ;
+    Route::get('get-categorie/{id}', 'show');;
+    Route::delete('delete-categorie/{id}', 'destroy'); 
 });
 
 Route::controller(RoleController::class)->group(function() {
-    Route::post('store-role', 'store'); // création du produit
-    Route::put('update-role/{id}', 'update'); // mise à jour du produit
-    Route::get('show-roles', 'index'); // affichage des produit
-    Route::get('get-role/{id}', 'show'); // affichage du produit
-    Route::delete('delete-role/{id}', 'destroy'); // suppression du produit
+    Route::post('store-role', 'store'); 
+    Route::put('update-role/{id}', 'update'); 
+    Route::get('show-roles', 'index'); 
+    Route::get('get-role/{id}', 'show'); 
+    Route::delete('delete-role/{id}', 'destroy'); 
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
