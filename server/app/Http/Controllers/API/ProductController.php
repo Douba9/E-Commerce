@@ -1,24 +1,15 @@
 <?php
-    
+   
 namespace App\Http\Controllers\API;
-    
-use App\Models\Product;
+   
 use Illuminate\Http\Request;
-    
-class ProductController extends Controller
-{ 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    function __construct()
-    {
-         $this->middleware('permission:product-list|product-create|product-edit|product-delete', ['only' => ['index','show']]);
-         $this->middleware('permission:product-create', ['only' => ['create','store']]);
-         $this->middleware('permission:product-edit', ['only' => ['edit','update']]);
-         $this->middleware('permission:product-delete', ['only' => ['destroy']]);
-    }
+use App\Http\Controllers\API\BaseController as BaseController;
+use App\Models\Product;
+use Validator;
+use App\Http\Resources\ProductResource;
+   
+class ProductController extends BaseController
+{
     /**
      * Display a listing of the resource.
      *
@@ -26,20 +17,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::orderBy('id')->paginate(5);
-        return view('products.index',compact('products'))->with('i', (request()->input('page', 1) - 1) * 5);
-    }
+        $products = Product::all();
     
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('products.create');
+        return $this->sendResponse(ProductResource::collection($products), 'Produit recus avec succès.');
     }
-    
     /**
      * Store a newly created resource in storage.
      *
@@ -48,76 +29,88 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
+        $input = $request->all();
+   
+        $validator = Validator::make($input, [
             'name' => 'required',
             'detail' => 'required',
             'price' => 'required',
-            'image'=> 'required',
-            'stock'=> 'required',
-            'categorie_id'=> 'required',
+            'stock' =>'required',
+            'image' =>'required',
+            'categorie_id' => 'required',
         ]);
-        
-    
-        Product::create($request->all());
-    
-        return redirect()->route('products.index')->with('success','Produit crée avec succès.');
-    }
-    
+   
+        if($validator->fails()){
+            return $this->sendError('Validation Error.', $validator->errors());       
+        }
+   
+        $product = Product::create($input);
+   
+        return $this->sendResponse(new ProductResource($product), 'Produit crée avec succès.');
+    } 
+   
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        return view('products.show',compact('product'));
-    }
-    
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Product $product)
-    {
-        return view('products.edit',compact('product'));
+        $product = Product::find($id);
+  
+        if (is_null($product)) {
+            return $this->sendError('Aucun produit trouver.');
+        }
+   
+        return $this->sendResponse(new ProductResource($product), 'Produits recus avec succès');
     }
     
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Product $product)
     {
-         request()->validate([
+        $input = $request->all();
+   
+        $validator = Validator::make($input, [
             'name' => 'required',
             'detail' => 'required',
             'price' => 'required',
-            'image'=> 'required',
-            'stock'=> 'required',
-            'categorie_id'=> '',
+            'stock' =>'required',
+            'image' =>'required',
+            'categorie_id' => 'required',
         ]);
-    
-        $product->update($request->all());
-    
-        return redirect()->route('products.index')->with('success','Produit mis à jour avec succès');
+   
+        if($validator->fails()){
+            return $this->sendError('Validation Error.', $validator->errors());       
+        }
+   
+        $product->name   = $input['name'];
+        $product->detail = $input['detail'];
+        $product->price  = $input['price'];
+        $product->stock  = $input['stock'];
+        $product->image  = $input['image'];           
+        $product->categorie  = $input['categorie_id'];           
+        $product->save();
+   
+        return $this->sendResponse(new ProductResource($product), 'mis à jour du produit avec succès.');
     }
-    
+   
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product  $product
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Product $product)
     {
         $product->delete();
-    
-        return redirect()->route('products.index')->with('success','Produit supprimer avec succès');
+   
+        return $this->sendResponse([], 'Produit supprimer avec succès.');
     }
 }

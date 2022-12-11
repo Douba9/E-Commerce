@@ -32,7 +32,7 @@
         </tr>
 	    @foreach ($categorie as $categorie)
 	    <tr>
-	        <td>{{ (++$i) }}</td>
+	        <td>{{ ++$i }}</td>
 	        <td>{{ $categorie->name }}</td>
 
 	        <td>

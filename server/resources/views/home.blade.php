@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('Administration CRUD bienvenu !') }}
+                    {{ __('Vous êtes connecter!') }}
                 </div>
             </div>
         </div>

@@ -5,8 +5,6 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\API\RegisterController;
 use App\Http\Controllers\API\ProductController;
-use App\Http\Controllers\API\RoleController;
-use App\Http\Controllers\API\CategorieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,24 +28,6 @@ Route::controller(ProductController::class)->group(function() {
     Route::get('get-product/{id}', 'show'); // affichage du produit
     Route::delete('delete-product/{id}', 'destroy'); // suppression du produit
 });
-
-Route::controller(CategorieController::class)->group(function() {
-    Route::post('store-categorie', 'store');
-    Route::put('update-categorie/{id}', 'update'); 
-    Route::get('show-categories', 'index'); ;
-    Route::get('get-categorie/{id}', 'show');;
-    Route::delete('delete-categorie/{id}', 'destroy'); 
-});
-
-Route::controller(RoleController::class)->group(function() {
-    Route::post('store-role', 'store'); 
-    Route::put('update-role/{id}', 'update'); 
-    Route::get('show-roles', 'index'); 
-    Route::get('get-role/{id}', 'show'); 
-    Route::delete('delete-role/{id}', 'destroy'); 
-});
-
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-    
 });

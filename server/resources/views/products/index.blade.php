@@ -37,13 +37,12 @@
         </tr>
 	    @foreach ($products as $product)
 	    <tr>
-            <!-- Str::limit($var, $limit) -->
 	        <td>{{ ++$i }}</td>
 	        <td>{{ $product->name }}</td>
-	        <td>{{ Str::limit($product->detail ,50) }}</td>
+	        <td>{{ $product->detail }}</td>
 	        <td>{{ $product->price }}</td>
 	        <td>{{ $product->stock }}</td>
-	        <td>{{  Str::limit($product->image ,50)}}</td>  
+	        <td>{{ $product->image }}</td>
 	        <td>{{$product->categorie_id}}</td>
 
 	        <td>
