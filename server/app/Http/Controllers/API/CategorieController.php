@@ -83,7 +83,7 @@ class CategorieController extends BaseController
         $categorie->name   = $input['name'];         
         $categorie->save();
    
-        return $this->sendResponse(new CategoriesRessource($categorie), 'mis à jour du Catégorie avec succès.');
+        return $this->sendResponse(new CategoriesRessource($categorie), 'mise à jour de la Catégorie avec succès.');
     }
    
     /**

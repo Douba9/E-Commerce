@@ -76,8 +76,8 @@ Headers {
     ![alt text](asset/readme/dashboard.png)
 
     
-## Activer le compte administrateur
+## Activer le compte administrateur / Les permissions / les catégories et les articles .
 
-cd server && php artisan db:seed --class=PermissionTableSeeder && php artisan db:seed --class=CreateAdminUserSeeder 
+cd server && php artisan db:seed --class=PermissionTableSeeder && php artisan db:seed --class=CreateAdminUserSeeder && php artisan db:seed --class=CategorieSeeder
 
 it will create admin user with this log => email : admin@admin.com & password : 123456 
