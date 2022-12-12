@@ -7,6 +7,7 @@ import facebook from './img/facebook.svg'
 import linkedin from './img/linkedin.svg'
 import twitter from './img/twitter.svg'
 import branded from './img/branded.png'
+import { Link } from 'react-router-dom'
 
 export const Article = () => {
     return (
@@ -41,7 +42,7 @@ export const Article = () => {
             <main className="d-flex flex-column align-items-center">
                 <nav className="mt-2" aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item" aria-current="page">Home</li>
+                        <li class="breadcrumb-item" aria-current="page"><Link to="/">Home</Link></li>
                         <li class="breadcrumb-item" aria-current="page">Components</li>
                         <li class="breadcrumb-item active" aria-current="page">Carte mère pour minage composant PC</li>
                     </ol>

@@ -11,13 +11,10 @@ import { render } from '@testing-library/react'
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route exact path='/' element={<div className='Home'><Home/></div>}></Route>
-        <Route exact path='/article' element={<div className='Article'><Article/></div>}></Route>
-      </Routes>
-    </Router>
-  )
+    <div className="Home">
+      <Home/>
+    </div>
+  );
 
   // const [currentForm, setCurrentForm] = useState('register');
   // const toogleForm = (formName) => {
@@ -28,12 +25,6 @@ function App() {
   //     {
   //       currentForm == 'login' ? <Login onFormSwitch={toogleForm} /> : <Register onFormSwitch={toogleForm} />
   //     }
-  //   </div>
-  // );
-
-  // return (
-  //   <div className="Home">
-  //     <Home/>
   //   </div>
   // );
 

@@ -6,6 +6,7 @@ import motherboard from './img/motherboard.png'
 import facebook from './img/facebook.svg'
 import linkedin from './img/linkedin.svg'
 import twitter from './img/twitter.svg'
+import { Link } from 'react-router-dom'
 
 export const Home = () => {
     return (
