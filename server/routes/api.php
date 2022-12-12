@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\API\RegisterController;
 use App\Http\Controllers\API\ProductController;
+use App\Http\Controllers\API\CategorieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,7 @@ use App\Http\Controllers\API\ProductController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
 Route::controller(RegisterController::class)->group(function(){
     Route::post('register', 'register'); // création de compte
     Route::post('login', 'login'); // connexion
@@ -28,6 +30,15 @@ Route::controller(ProductController::class)->group(function() {
     Route::get('get-product/{id}', 'show'); // affichage du produit
     Route::delete('delete-product/{id}', 'destroy'); // suppression du produit
 });
+
+Route::controller(CategorieController::class)->group(function() {
+    Route::post('store-categorie', 'store'); // création du produit
+    Route::put('update-categorie/{id}', 'update'); // mise à jour du produit
+    Route::get('show-categories', 'index'); // affichage des produit
+    Route::get('get-categorie/{id}', 'show'); // affichage du produit
+    Route::delete('delete-categorie/{id}', 'destroy'); // suppression du produit
+});
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
