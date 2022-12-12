@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { createRoot } from 'react-dom/client';
 import { Home } from './Home';
 import Cookies from 'universal-cookie';
+
+import {
+    Navigate
+} from "react-router-dom";
 
 const cookies = new Cookies();
 
@@ -35,10 +38,14 @@ export const Login = (props) => {
                     let message = data.message;
 
                     if (message === "Connexion de l'utilisateur avec succès.") {
-                        const container = document.getElementById('root');
-                        const root = createRoot(container);
+                        // const container = document.getElementById('root');
+                        // const root = createRoot(container);
                         cookies.set('isConnected', true, { path: '/' });
-                        root.render(<Home token={data.data.token}/>);
+                        // props.root.render(<Home token={data.data.token}/>);
+                        window.location.href = '/Home';
+                        // render('/Home');
+                        // return <Navigate to={"/Home"}/>;
+                        
                     } else {
                         alert("Impossible de se connecter");
                     }

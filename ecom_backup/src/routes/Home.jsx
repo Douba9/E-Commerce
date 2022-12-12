@@ -5,7 +5,6 @@ import facebook from '../img/facebook.svg';
 import linkedin from '../img/linkedin.svg';
 import twitter from '../img/twitter.svg';
 import { Article } from "./Articles";
-import * as ReactDOM from 'react-dom/client';
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/js/dist/modal";
 
@@ -18,6 +17,9 @@ export const Home = (props) => {
     const register_url = "http://127.0.0.1:8000/api/show-products";
 
     useEffect(() => {
+        if (!cookies.get('isConnected')) {
+            window.location.href = '/Login';
+        }
         const requestOptions = {
             method: 'GET'
         };
@@ -31,18 +33,18 @@ export const Home = (props) => {
 
             <nav className="navbar navbar-expand-lg bg-light">
                 <div className="container-fluid">
-                    <div class="navbar-brand">
+                    <div className="navbar-brand">
                         <img src={logo} alt="logo" width="200" />
                     </div>
                     <form className="d-flex" role="search">
                         <input type="text" className="form-control me-2" placeholder="Search" />
-                        <button class="btn btn-outline-primary" type="submit">Search</button>
+                        <button className="btn btn-outline-primary" type="submit">Search</button>
                     </form>
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <img style={{cursor: 'pointer'}} onClick={() => {
-                                let root = ReactDOM.createRoot(document.getElementById('root'));
-                                root.render(<Cart/>);
+                            <img style={{ cursor: 'pointer' }} onClick={() => {
+                                // props.root.render(<Cart/>);
+                                window.location.href = '/Cart';
                             }} src={cart} alt="cart" width="30" />
                         </li>
                         <li className="nav-item">
@@ -51,7 +53,7 @@ export const Home = (props) => {
                         <li className="nav-item">
                             <div style={{ cursor: 'pointer' }} className="nav-link" onClick={() => {
                                 cookies.set('isConnected', false, { path: '/', expires: new Date(Date.now() + 1) });
-                                window.location.reload(false);
+                                window.location.href = '/Login';
                             }}>Log out</div>
                         </li>
                     </ul>
@@ -84,11 +86,8 @@ export const Home = (props) => {
                                         fetch(register_url, requestOptions).then((response) => response.json()).then((data) => {
                                             let d = data.data;
                                             console.log(d);
-
-                                            const container = document.getElementById('root');
-                                            const root = ReactDOM.createRoot(container);
-                                            root.render(<Article name={d.name} image={d.image} detail={d.detail} price={d.price} stock={d.stock} />);
-
+                                            window.location.href = "/Product/";
+                                            // props.rooter.render(<Article id={d.id} name={d.name} image={d.image} detail={d.detail} price={d.price} stock={d.stock} />);
                                         }).catch(err => console.log(err));
 
                                     }} className="btn btn-primary">Technical Sheet</button>

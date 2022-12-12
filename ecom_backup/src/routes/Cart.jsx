@@ -5,6 +5,11 @@ import facebook from '../img/facebook.svg';
 import linkedin from '../img/linkedin.svg';
 import twitter from '../img/twitter.svg';
 
+//import { createRoot } from 'react-dom/client';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
+
 export const Cart = (props) => {
     return (
         <div className="Home">
@@ -22,9 +27,30 @@ export const Cart = (props) => {
                     </ul>
                 </div>
             </nav>
-            <main className="container">
+            <main id="main" className="container">
 
-                
+                {() => {
+                    let cart = cookies.get('my_cart');
+                    console.log(cart);
+
+                    // let Cartroot = createRoot(document.getElementById('main'));
+                    // let emptyCartroot = createRoot(document.getElementById('main'));
+
+                    if (cookies.get('my_cart')) {
+                        return (
+                            <div>
+                                <h1>{cart}</h1>
+                            </div>
+                        );
+                    }
+                    else {
+                        return (
+                            <div>
+                                <h1>Your cart is empty!</h1>
+                            </div>
+                        );
+                    }
+                }}
 
             </main>
             <footer className="container-fluid bg-light">

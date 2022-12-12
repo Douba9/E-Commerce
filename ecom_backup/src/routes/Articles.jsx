@@ -1,12 +1,7 @@
 import React from "react";
-import cart from '../img/icon-cart.svg';
-import logo from '../img/logo.png';
-import products from '../img/products.png';
-import motherboard from '../img/motherboard.png';
-import facebook from '../img/facebook.svg';
-import linkedin from '../img/linkedin.svg';
-import twitter from '../img/twitter.svg';
-import branded from '../img/branded.png';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 export const Article = (props) => {
     return (
@@ -28,7 +23,16 @@ export const Article = (props) => {
                 </div>
                 <div className="control d-flex justify-content-center align-items-center">
                     <span id="price">{props.price}</span>
-                    <button id="basket" className="btn btn-primary">Ajouter au panier</button>
+                    <button onClick={() => {
+                        if (cookies.get('my_cart')) {
+                            cookies.set('my_cart', cookies.get('my_cart') + "," + props.id, {path: '*'});
+                            console.log(cookies.get('my_cart'));
+                        }
+                        else {
+                            cookies.set('my_cart', props.id, {path: '*'});
+                            console.log(cookies.get('my_cart'));
+                        }
+                    }} id="basket" className="btn btn-primary">Ajouter au panier</button>
                 </div>
                 <div id="specs" className="display d-flex justify-content-around align-items-center">
                     <table className="table table-striped text-center">
