@@ -38,6 +38,10 @@ footer .row .socials a {
   margin: 0 .5em;
 }
 
+[aria-label="breadcrumb"] {
+  position: unset;
+}
+
 /* Login & register */
 
 .App {
