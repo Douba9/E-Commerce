@@ -1,17 +1,17 @@
-import './App.css'
-import React, { useState } from "react"
-import { Login } from "./Login"
-import { Register } from "./Register"
-import { Home } from "./Home"
-import { Article } from "./Article"
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import { render } from '@testing-library/react'
+import './App.css';
+import React, { useState } from 'react';
+import { Login } from './Login';
+import { Register } from './Register';
+import { Home } from './Home';
+import { Article } from './Article';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { render } from '@testing-library/react';
 
 // const cookies = new Cookies();
 
 function App() {
   return (
-    <div className="Home">
+    <div className='Home'>
       <Home/>
     </div>
   );
@@ -21,7 +21,7 @@ function App() {
   //   setCurrentForm(formName)
   // }
   // return (
-  //   <div className="App">
+  //   <div className='App'>
   //     {
   //       currentForm == 'login' ? <Login onFormSwitch={toogleForm} /> : <Register onFormSwitch={toogleForm} />
   //     }
@@ -29,7 +29,7 @@ function App() {
   // );
 
   // return (
-  //   <div className="Article">
+  //   <div className='Article'>
   //     <Article />
   //   </div>
   // );

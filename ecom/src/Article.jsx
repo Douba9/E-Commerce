@@ -14,18 +14,59 @@ export const Article = () => {
         <>
             <nav className="navbar navbar-expand-lg bg-light">
                 <div className="container-fluid">
-                    <a class="navbar-brand" href="#">
+                    <a className="navbar-brand" href="#">
                         <img src={logo} alt="logo" width="200" />
                     </a>
                     <form className="d-flex" role="search">
                         <input type="text" className="form-control me-2" placeholder="Search" />
-                        <button class="btn btn-outline-primary" type="submit">Search</button>
+                        <button className="btn btn-outline-primary" type="submit">Search</button>
                     </form>
                     <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <button className="btn">
+                        <li id="cart" className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src={cart} alt="cart" width="30" />
-                            </button>
+                            </a>
+                            <ul className="dropdown-menu dropdown-menu-end">
+                                <li><h6 className="dropdown-header">Cart</h6></li>
+                                <li><hr className="dropdown-divider" /></li>
+                                <li>
+                                    <div className="cart-item">
+                                        <div className="overview">
+                                            <img src={products} alt="products" />
+                                            <div>
+                                                <h6>Lorem Ipsum</h6>
+                                                <p>Lorem ipsum dolor sit amet.</p>
+                                            </div>
+                                        </div>
+                                        <div className="details">
+                                            <p id="price">XXX.XX€</p>
+                                            <p id="amount">&#215;1</p>
+                                        </div>
+                                    </div>
+                                    <div className="cart-item">
+                                        <div className="overview">
+                                            <img src={motherboard} alt="products" />
+                                            <div>
+                                                <h6>Lorem Ipsum</h6>
+                                                <p>Lorem ipsum dolor sit amet.</p>
+                                            </div>
+                                        </div>
+                                        <div className="details">
+                                            <p id="price">XXX.XX€</p>
+                                            <p id="amount">&#215;1</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><hr className="dropdown-divider" /></li>
+                                <div className="d-flex justify-content-between align-items-center mx-2">
+                                    <li>
+                                        <p><strong>Total:</strong> XXX.XX€</p>
+                                    </li>
+                                    <li>
+                                        <a href="#" className="btn btn-primary">View my cart</a>
+                                    </li>
+                                </div>
+                            </ul>
                         </li>
                         <li className="nav-item">
                             <div className="vr d-none d-lg-flex h-100 mx-lg-2 text-black"></div>

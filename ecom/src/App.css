@@ -42,6 +42,35 @@ footer .row .socials a {
   position: unset;
 }
 
+#cart .dropdown-menu {
+  width: max-content !important;
+}
+
+#cart a.dropdown-toggle::after {
+  display: none;
+}
+
+#cart img {
+  margin-right: 5px;
+  max-width: 70px;
+}
+
+#cart .cart-item {
+  padding: 5px;
+  width: fit-content;
+}
+
+#cart .cart-item .overview {
+  display: flex;
+  align-items: center;
+}
+
+#cart .cart-item .details {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 /* Login & register */
 
 .App {
