@@ -34,15 +34,23 @@ export const Home = (props) => {
                     <div class="navbar-brand">
                         <img src={logo} alt="logo" width="200" />
                     </div>
-                    <form className="d-flex" role="search">
-                        <input type="text" className="form-control me-2" placeholder="Search" />
-                        <button class="btn btn-outline-primary" type="submit">Search</button>
-                    </form>
+                    <div id="search_bar_container" className="d-flex">
+                        <input id="search_bar" type="text" className="form-control me-2" placeholder="Search" onChange={() => {
+                            let search = document.getElementById('search_bar');
+                            let search_bar_container = document.getElementById('search_bar_container');
+                            console.log(search.value);
+
+                            search_bar_container.append(search.value.slice(search.value.lastIndexOf(' ')));
+                        }}/>
+                        <button class="btn btn-outline-primary" type="button" onClick={() => {
+                            let search = document.getElementById('search_bar').value;
+                        }}>Search</button>
+                    </div>
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <img style={{cursor: 'pointer'}} onClick={() => {
+                            <img style={{ cursor: 'pointer' }} onClick={() => {
                                 let root = ReactDOM.createRoot(document.getElementById('root'));
-                                root.render(<Cart/>);
+                                root.render(<Cart />);
                             }} src={cart} alt="cart" width="30" />
                         </li>
                         <li className="nav-item">
