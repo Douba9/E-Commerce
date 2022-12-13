@@ -48,7 +48,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Categorie:</strong>
-                {{ $product->categorie }}
+                {{ $product->categorie_id }}
             </div>
         </div>
     </div>
