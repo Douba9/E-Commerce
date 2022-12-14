@@ -117,7 +117,7 @@ export const Cart = () => {
                             <div id="cart-item" className="container">
                                 <div className="row">
                                     <div className="col">
-                                        <img src={products} alt="products" />
+                                        <img src={motherboard} alt="products" />
                                     </div>
                                     <div className="col">
                                         <div className="overview">
@@ -136,6 +136,9 @@ export const Cart = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div id="recap" className="row my-4 text-center">
+                    <h3 id="price">Total: XXX.XX€ <span className="ms-1"><a href="#" id="checkout" className="btn btn-primary">Checkout</a></span></h3>
                 </div>
             </main>
             <footer className="container-fluid bg-light">
