@@ -15,6 +15,7 @@ const cookies = new Cookies();
 
 export const Home = (props) => {
     const [products, setProducts] = useState([]);
+    const [search, setSearch] = useState([]);
     const register_url = "http://127.0.0.1:8000/api/show-products";
 
     useEffect(() => {
@@ -34,17 +35,56 @@ export const Home = (props) => {
                     <div class="navbar-brand">
                         <img src={logo} alt="logo" width="200" />
                     </div>
-                    <div id="search_bar_container" className="d-flex">
+                    <div style={{ position: 'relative' }} id="search_bar_container" className="d-flex">
                         <input id="search_bar" type="text" className="form-control me-2" placeholder="Search" onChange={() => {
-                            let search = document.getElementById('search_bar');
-                            let search_bar_container = document.getElementById('search_bar_container');
-                            console.log(search.value);
+                            let s = document.getElementById('search_bar').value;
 
-                            search_bar_container.append(search.value.slice(search.value.lastIndexOf(' ')));
-                        }}/>
+                            if (s.length > 0) {
+
+                                let r = {
+                                    method: 'GET'
+                                };
+                                fetch("http://localhost:8000/api/product-by-name/" + s, r).then((response) => response.json()).then((data) => {
+                                    setSearch(data.data);
+                                    console.log(data.data);
+                                }).catch(err => console.log(err));
+                            }
+                            else{
+                                setSearch([]);
+                            }
+
+                        }} />
                         <button class="btn btn-outline-primary" type="button" onClick={() => {
-                            let search = document.getElementById('search_bar').value;
+                            let s = document.getElementById('search_bar').value;
+
+                            if (s.length > 0) {
+
+                                let r = {
+                                    method: 'GET'
+                                };
+                                fetch("http://localhost:8000/api/product-by-name/" + s, r).then((response) => response.json()).then((data) => {
+                                    setProducts(data.data);
+                                    console.log(data.data);
+                                }).catch(err => console.log(err));
+                            }
+
+                            setSearch([]);
                         }}>Search</button>
+                        <div style={{ position: 'absolute', top: '50px' }} className="card">
+                            <div>
+                                {search.map((s) => (
+                                    <div>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                            <p className="card-text">{s.name}</p>
+                                            <p className="card-text"></p>
+                                            <p className="card-text">{s.price}</p>
+                                        </div>
+                                        <p>stock : {s.stock}</p>
+                                        <button className="btn btn-primary">Add to cart</button>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                     <ul className="navbar-nav">
                         <li className="nav-item">

@@ -27,6 +27,7 @@ Route::controller(ProductController::class)->group(function() {
     Route::get('show-products', 'index'); // affichage des produit
     Route::get('get-product/{id}', 'show'); // affichage du produit
     Route::delete('delete-product/{id}', 'destroy'); // suppression du produit
+    Route::get('product-by-name/{name}', 'show_by_name'); // recherche par nom du produit
 });
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

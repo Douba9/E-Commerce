@@ -3,7 +3,7 @@
 namespace App\Http\Resources;
    
 use Illuminate\Http\Resources\Json\JsonResource;
-  
+
 class ProductResource extends JsonResource
 {
     /**
@@ -22,8 +22,8 @@ class ProductResource extends JsonResource
             'image' => $this->image,
             'detail' => $this->detail,
             'categorie_id' => $this->categorie_id,
-            'created_at' => $this->created_at->format('d/m/Y'),
-            'updated_at' => $this->updated_at->format('d/m/Y'),
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ];
     }
 }
