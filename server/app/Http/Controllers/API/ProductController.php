@@ -113,4 +113,24 @@ class ProductController extends BaseController
    
         return $this->sendResponse([], 'Produit supprimer avec succès.');
     }
+
+    /**
+     * Show specific product on search bar
+     * @param string $name
+     * @return \Illuminate\Http\Response
+     */
+    public function show_by_name($name)
+
+    {
+ 
+        static $tempArr = [];
+
+        $product = Product::where('name', 'LIKE', "%$name%")->get();
+
+        if (is_null($product)) {
+            return $this->sendError('Aucun produit trouver.');
+        }        
+        return $this->sendResponse($product, 'Produits recus avec succès');
+ 
+    }
 }
