@@ -52,4 +52,5 @@
             </div>
         </div>
     </div>
+    <a href="" class="btn btn-warning">Ajouter au panier</a>
 @endsection

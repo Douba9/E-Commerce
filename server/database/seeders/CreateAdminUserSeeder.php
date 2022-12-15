@@ -40,5 +40,18 @@ class CreateAdminUserSeeder extends Seeder
 
         $role->givePermissionTo('categorie-list','product-list');
 
+
+        $user = User::create([
+            'name' => 'Management', 
+            'email' => 'product@admin.com',
+            'password' => bcrypt('123456')
+        ]);
+        
+        $role = Role::create(['name' => 'Gestion de produit']);
+
+        $role->givePermissionTo('product-list','product-create','product-edit','product-delete','categorie-list','categorie-create','categorie-edit','categorie-delete');
+        
+        $user->assignRole([$role->id]);
+
     }
 }
