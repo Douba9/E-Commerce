@@ -7,6 +7,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\PanierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/panier', [App\Http\Controllers\PanierController::class, 'index'])->name('panier');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
