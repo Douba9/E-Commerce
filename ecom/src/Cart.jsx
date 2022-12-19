@@ -138,7 +138,7 @@ export const Cart = () => {
                     </div>
                 </div>
                 <div id="recap" className="row my-4 text-center">
-                    <h3 id="price">Total: XXX.XX€ <span className="ms-1"><a href="#" id="checkout" className="btn btn-primary">Checkout</a></span></h3>
+                    <h3 id="price">Total: XXX.XX€ <span id="tva" className="fs-6">(TVA: XX%)</span> <span className="ms-1"><a href="#" id="checkout" className="btn btn-primary">Checkout</a></span></h3>
                 </div>
             </main>
             <footer className="container-fluid bg-light">
