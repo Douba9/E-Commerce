@@ -48,7 +48,6 @@
 	        <td>
                 <form action="{{ route('products.destroy',$product->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('products.show',$product->id) }}">voir</a>
-                    <a href="" class="btn btn-warning">Ajouter au panier</a>
                     <a class="btn btn-primary" href="{{ route('products.edit',$product->id) }}">modifier</a>
                     @csrf
                     @method('DELETE')
@@ -56,6 +55,12 @@
                     <button type="submit" class="btn btn-danger">supprimer</button>
                     @endcan
                 </form>
+                {{-- <form method="POST" action="{{ route('panier.add') }}">
+                    @csrf
+                    <input type="hidden" name="item_id" value="{{ $product->id }}">
+                    <input type="number" name="quantity" value="1" min="1">
+                    <button type="submit"class="btn btn-warning">Ajouter au panier</button>
+                </form> --}}
 	        </td>
 	    </tr>
 	    @endforeach

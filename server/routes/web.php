@@ -7,7 +7,6 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategorieController;
-use App\Http\Controllers\PanierController;
 
 /*
 |--------------------------------------------------------------------------
