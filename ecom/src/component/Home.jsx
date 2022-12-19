@@ -7,7 +7,7 @@ import twitter from '../img/twitter.svg';
 import { Article } from "./Articles";
 import * as ReactDOM from 'react-dom/client';
 import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/js/dist/modal";
+import "bootstrap/dist/js/bootstrap.bundle";
 
 import Cookies from 'universal-cookie';
 import { Cart } from "./Cart";
@@ -49,7 +49,7 @@ export const Home = (props) => {
                                     console.log(data.data);
                                 }).catch(err => console.log(err));
                             }
-                            else{
+                            else {
                                 setSearch([]);
                             }
 
@@ -74,6 +74,7 @@ export const Home = (props) => {
                             <div>
                                 {search.map((s) => (
                                     <div>
+                                        <img src={s.image} alt="Product Image" />
                                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                             <p className="card-text">{s.name}</p>
                                             <p className="card-text"></p>
@@ -86,13 +87,43 @@ export const Home = (props) => {
                             </div>
                         </div>
                     </div>
+
                     <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <img style={{ cursor: 'pointer' }} onClick={() => {
-                                let root = ReactDOM.createRoot(document.getElementById('root'));
-                                root.render(<Cart />);
-                            }} src={cart} alt="cart" width="30" />
+
+                        <li id="cart" className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src={cart} alt="cart" width="30" />
+                            </a>
+                            <ul className="dropdown-menu dropdown-menu-end">
+                                <li><h6 className="dropdown-header">Cart</h6></li>
+                                <li><hr className="dropdown-divider" /></li>
+                                <li>
+                                    <div className="cart-item">
+                                        <div className="overview">
+                                            <img src={twitter} alt="products" />
+                                            <div>
+                                                <h6>Lorem Ipsum</h6>
+                                                <p>Lorem ipsum dolor sit amet.</p>
+                                            </div>
+                                        </div>
+                                        <div className="details">
+                                            <p id="price">XXX.XX€</p>
+                                            <p id="amount">&#215;1</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><hr className="dropdown-divider" /></li>
+                                <div className="d-flex justify-content-between align-items-center mx-2">
+                                    <li>
+                                        <p><strong>Total:</strong> XXX.XX€</p>
+                                    </li>
+                                    <li>
+                                        <a href="#" className="btn btn-primary">View my cart</a>
+                                    </li>
+                                </div>
+                            </ul>
                         </li>
+
                         <li className="nav-item">
                             <div className="vr d-none d-lg-flex h-100 mx-lg-2 text-black"></div>
                         </li>

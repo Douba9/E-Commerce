@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\API\RegisterController;
 use App\Http\Controllers\API\ProductController;
+use App\Http\Controllers\API\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,12 @@ use App\Http\Controllers\API\ProductController;
 Route::controller(RegisterController::class)->group(function(){
     Route::post('register', 'register'); // création de compte
     Route::post('login', 'login'); // connexion
+});
+
+Route::controller(CartController::class)->group(function(){
+    Route::post('cart/add', 'add'); // Ajout d'un produit au panier
+    Route::post('cart/show', 'show'); // Affichage des produits du panier
+    Route::post('cart/clear', 'clear'); // Vide le panier
 });
 
 Route::controller(ProductController::class)->group(function() {
