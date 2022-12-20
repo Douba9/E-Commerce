@@ -11,11 +11,11 @@ import { render } from '@testing-library/react';
 // const cookies = new Cookies();
 
 function App() {
-  // return (
-  //   <div className='Home'>
-  //     <Home/>
-  //   </div>
-  // );
+  return (
+    <div className='Home'>
+      <Home/>
+    </div>
+  );
 
   // const [currentForm, setCurrentForm] = useState('register');
   // const toogleForm = (formName) => {
@@ -35,11 +35,11 @@ function App() {
   //   </div>
   // );
 
-  return (
-    <div className='Cart'>
-      <Cart />
-    </div>
-  )
+  // return (
+  //   <div className='Cart'>
+  //     <Cart />
+  //   </div>
+  // )
 }
 
 export default App;

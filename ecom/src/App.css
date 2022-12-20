@@ -47,6 +47,11 @@ footer .row .socials a {
   width: max-content !important;
 }
 
+#cart .dropdown-menu #list {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
 #cart a.dropdown-toggle::after {
   display: none;
 }
