@@ -28,10 +28,49 @@ export const Cart = () => {
                             <ul className="dropdown-menu dropdown-menu-end">
                                 <li><h6 className="dropdown-header">Cart</h6></li>
                                 <li><hr className="dropdown-divider" /></li>
-                                <li>
+                                <li id="list">
                                     <div className="cart-item">
                                         <div className="overview">
                                             <img src={products} alt="products" />
+                                            <div>
+                                                <h6>Lorem Ipsum</h6>
+                                                <p>Lorem ipsum dolor sit amet.</p>
+                                            </div>
+                                        </div>
+                                        <div className="details">
+                                            <p id="price">XXX.XX€</p>
+                                            <p id="amount">&#215;1</p>
+                                        </div>
+                                    </div>
+                                    <div className="cart-item">
+                                        <div className="overview">
+                                            <img src={motherboard} alt="products" />
+                                            <div>
+                                                <h6>Lorem Ipsum</h6>
+                                                <p>Lorem ipsum dolor sit amet.</p>
+                                            </div>
+                                        </div>
+                                        <div className="details">
+                                            <p id="price">XXX.XX€</p>
+                                            <p id="amount">&#215;1</p>
+                                        </div>
+                                    </div>
+                                    <div className="cart-item">
+                                        <div className="overview">
+                                            <img src={motherboard} alt="products" />
+                                            <div>
+                                                <h6>Lorem Ipsum</h6>
+                                                <p>Lorem ipsum dolor sit amet.</p>
+                                            </div>
+                                        </div>
+                                        <div className="details">
+                                            <p id="price">XXX.XX€</p>
+                                            <p id="amount">&#215;1</p>
+                                        </div>
+                                    </div>
+                                    <div className="cart-item">
+                                        <div className="overview">
+                                            <img src={motherboard} alt="products" />
                                             <div>
                                                 <h6>Lorem Ipsum</h6>
                                                 <p>Lorem ipsum dolor sit amet.</p>
