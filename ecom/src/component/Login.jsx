@@ -38,7 +38,7 @@ export const Login = (props) => {
                         const container = document.getElementById('root');
                         const root = createRoot(container);
                         cookies.set('isConnected', true, { path: '/' });
-                        root.render(<Home token={data.data.token}/>);
+                        root.render(<Home id={data.data.id} token={data.data.token}/>);
                     } else {
                         alert("Impossible de se connecter");
                     }

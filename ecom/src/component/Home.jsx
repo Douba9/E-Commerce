@@ -7,7 +7,6 @@ import twitter from '../img/twitter.svg';
 import { Article } from "./Articles";
 import * as ReactDOM from 'react-dom/client';
 import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/js/bootstrap.bundle";
 
 import Cookies from 'universal-cookie';
 import { Cart } from "./Cart";
@@ -16,7 +15,35 @@ const cookies = new Cookies();
 export const Home = (props) => {
     const [products, setProducts] = useState([]);
     const [search, setSearch] = useState([]);
+    const [cartItems, setCart] = useState([]);
+    const [totalCart, setTotalCart] = useState(0);
     const register_url = "http://127.0.0.1:8000/api/show-products";
+    const cartShow_url = "http://127.0.0.1:8000/api/cart/show";
+
+    const cartRequestOptions = {
+        method: 'POST',
+        headers:
+        {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': props.token,
+        },
+        body: JSON.stringify(
+            {
+                user_id: props.id
+            }
+        )
+    };
+    fetch(cartShow_url, cartRequestOptions).then((response) => response.json()).then().then((i) => {
+        setCart(i.items);
+        setTotalCart(i.total);
+        // console.log(cartItems);
+        // console.log(totalCart);
+    }).catch((err) => {
+        cookies.set('isConnected', false, { path: '/', expires: new Date(Date.now() + 1) });
+        window.location.reload(false);
+        console.log(err);
+    });
 
     useEffect(() => {
         const requestOptions = {
@@ -24,7 +51,10 @@ export const Home = (props) => {
         };
         fetch(register_url, requestOptions).then((response) => response.json()).then((data) => {
             setProducts(data.data);
-        }).catch(err => console.log(err));
+        }).catch(err => () => {
+            console.log(err)
+        });
+
     }, []);
 
     return (
@@ -96,31 +126,37 @@ export const Home = (props) => {
                             </a>
                             <ul className="dropdown-menu dropdown-menu-end">
                                 <li><h6 className="dropdown-header">Cart</h6></li>
+
                                 <li><hr className="dropdown-divider" /></li>
                                 <li>
-                                    <div className="cart-item">
-                                        <div className="overview">
-                                            <img src={twitter} alt="products" />
-                                            <div>
-                                                <h6>Lorem Ipsum</h6>
-                                                <p>Lorem ipsum dolor sit amet.</p>
+                                    {cartItems.length ? cartItems.map((i) => (
+
+                                        <div className="cart-item">
+                                            <div className="overview">
+                                                <img src={i.product.image} alt="products" />
+                                                <div>
+                                                    <h6>{i.product.name}</h6>
+                                                </div>
+                                            </div>
+                                            <div className="details">
+                                                <p id="price">{i.product.price}</p>
+                                                <p id="amount">&#215;1</p>
                                             </div>
                                         </div>
-                                        <div className="details">
-                                            <p id="price">XXX.XX€</p>
-                                            <p id="amount">&#215;1</p>
-                                        </div>
-                                    </div>
+
+
+                                    )) : null}
                                 </li>
                                 <li><hr className="dropdown-divider" /></li>
                                 <div className="d-flex justify-content-between align-items-center mx-2">
                                     <li>
-                                        <p><strong>Total:</strong> XXX.XX€</p>
+                                        <p><strong>Total:</strong> {totalCart}</p>
                                     </li>
                                     <li>
                                         <a href="#" className="btn btn-primary">View my cart</a>
                                     </li>
                                 </div>
+
                             </ul>
                         </li>
 

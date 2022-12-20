@@ -28,7 +28,9 @@ export const Article = (props) => {
                 </div>
                 <div className="control d-flex justify-content-center align-items-center">
                     <span id="price">{props.price}</span>
-                    <button id="basket" className="btn btn-primary">Ajouter au panier</button>
+                    <button id="basket" className="btn btn-primary" onClick={() => {
+                        
+                    }}>Ajouter au panier</button>
                 </div>
                 <div id="specs" className="display d-flex justify-content-around align-items-center">
                     <table className="table table-striped text-center">
