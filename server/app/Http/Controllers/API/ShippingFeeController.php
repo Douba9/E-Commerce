@@ -42,7 +42,7 @@ class ShippingFeeController extends BaseController
             return $this->sendError('Aucunne livraison possible dans cette region ou ce pays.');
         }
 
-        return $this->sendResponse(new ShippingFeeResource($shippingFee), 'Nous livrons chez vous.');
+        return $this->sendResponse(new ShippingFeeResource($shippingFee), 'Nous livrons chez vous voici le mmontant de la livraison classic '.$shippingFee->amount.'$ et si vous souhaitez une livraison rapide, elle n\'est qu\'à '.$shippingFee->fast48H.'$ .');
 
     }
 

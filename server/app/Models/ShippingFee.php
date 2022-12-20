@@ -15,6 +15,6 @@ class ShippingFee extends Model
      * @var array
      */
     protected $fillable = [
-        'country', 'region','amount'
+        'country', 'region','amount','fast48H'
     ];
 }

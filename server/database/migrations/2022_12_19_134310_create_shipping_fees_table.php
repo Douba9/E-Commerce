@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('country');
             $table->string('region')->nullable();
             $table->decimal('amount', 8, 2);
+            $table->decimal('fast48H', 8, 2);
             $table->timestamps();
         });
     }

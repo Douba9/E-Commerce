@@ -19,6 +19,7 @@ class ShippingFeeResource extends JsonResource
             'country' => $this->country,
             'region' => $this->region,
             'amount' => $this->amount,
+            'fast48H' => $this->fast48H,
         ];
     }
 }
