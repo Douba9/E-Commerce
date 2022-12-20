@@ -78,6 +78,6 @@ Headers {
     
 ## Activer le compte administrateur / Les permissions / les catégories et les articles .
 
-cd server && php artisan db:seed --class=PermissionTableSeeder && php artisan db:seed --class=CreateAdminUserSeeder && php artisan db:seed --class=CategorieSeeder
+cd server && php artisan db:seed --class=PermissionTableSeeder && php artisan db:seed --class=CreateAdminUserSeeder && php artisan db:seed --class=CategorieSeeder && php artisan db:seed --class=ShippingFeeSeeder
 
 it will create admin user with this log => email : admin@admin.com & password : 123456 

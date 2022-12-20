@@ -7,6 +7,7 @@ use App\Http\Controllers\API\RegisterController;
 use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\API\CategorieController;
 use App\Http\Controllers\API\CartController;
+use App\Http\Controllers\API\ShippingFeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,11 @@ Route::controller(CartController::class)->group(function(){
     Route::post('cart/add', 'add'); // Ajout d'un produit au panier
     Route::post('cart/show', 'show'); // Affichage des produits du panier
     Route::post('cart/clear', 'clear'); // Vide le panier
+});
+
+Route::controller(ShippingFeeController::class)->group(function() {
+
+    Route::get('shipping-fee/{id}','show');
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
