@@ -52,6 +52,20 @@ footer .row .socials a {
   overflow-y: scroll;
 }
 
+#cart .dropdown-menu #list::-webkit-scrollbar {
+  width: 5px;
+  background: none;
+}
+
+#cart .dropdown-menu #list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--bs-gray-400);
+}
+
+#cart .dropdown-menu #list::-webkit-scrollbar-thumb:active {
+  background-color: var(--bs-gray-500);
+}
+
 #cart a.dropdown-toggle::after {
   display: none;
 }
