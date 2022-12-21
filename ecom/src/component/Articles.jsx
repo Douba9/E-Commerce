@@ -1,12 +1,7 @@
 import React from "react";
-import cart from '../img/icon-cart.svg';
-import logo from '../img/logo.png';
-import products from '../img/products.png';
-import motherboard from '../img/motherboard.png';
-import facebook from '../img/facebook.svg';
-import linkedin from '../img/linkedin.svg';
-import twitter from '../img/twitter.svg';
-import branded from '../img/branded.png';
+import { Home } from './Home';
+import { createRoot } from 'react-dom/client';
+
 
 export const Article = (props) => {
     return (
@@ -28,8 +23,30 @@ export const Article = (props) => {
                 </div>
                 <div className="control d-flex justify-content-center align-items-center">
                     <span id="price">{props.price}</span>
+                    <input id="quantity" defaultValue={1} type="number"></input>
                     <button id="basket" className="btn btn-primary" onClick={() => {
-                        
+                        const register_url = "http://localhost:8000/api/cart/add";
+
+                        const requestOptions = {
+                            method: 'POST',
+                            headers:
+                            {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json',
+                            },
+                            body: JSON.stringify(
+                                {
+                                    user_id: localStorage.getItem('user_id'),
+                                    product_id: props.id,
+                                    quantity: document.querySelector('#quantity').value,
+                                })
+                        };
+                        fetch(register_url, requestOptions).then((response) => response.json()).then((data) => {
+                            const container = document.getElementById('root');
+                            const root = createRoot(container);
+                            //console.log(data);
+                            root.render(<Home />);
+                        }).catch(err => console.log(err));
                     }}>Ajouter au panier</button>
                 </div>
                 <div id="specs" className="display d-flex justify-content-around align-items-center">

@@ -30,7 +30,7 @@ export const Home = (props) => {
         },
         body: JSON.stringify(
             {
-                user_id: props.id
+                user_id: localStorage.getItem('user_id')
             }
         )
     };
@@ -40,9 +40,11 @@ export const Home = (props) => {
         // console.log(cartItems);
         // console.log(totalCart);
     }).catch((err) => {
-        cookies.set('isConnected', false, { path: '/', expires: new Date(Date.now() + 1) });
-        window.location.reload(false);
-        console.log(err);
+        setCart([]);
+        setTotalCart(0);
+        // cookies.set('isConnected', false, { path: '/', expires: new Date(Date.now() + 1) });
+        // window.location.reload(false);
+        // console.log(err);
     });
 
     useEffect(() => {
@@ -140,7 +142,7 @@ export const Home = (props) => {
                                             </div>
                                             <div className="details">
                                                 <p id="price">{i.product.price}</p>
-                                                <p id="amount">&#215;1</p>
+                                                <p id="amount">&#215;{i.quantity}</p>
                                             </div>
                                         </div>
 
@@ -150,12 +152,32 @@ export const Home = (props) => {
                                 <li><hr className="dropdown-divider" /></li>
                                 <div className="d-flex justify-content-between align-items-center mx-2">
                                     <li>
-                                        <p><strong>Total:</strong> {totalCart}</p>
+                                        <p><strong>Total:</strong> {totalCart}$</p>
                                     </li>
-                                    <li>
-                                        <a href="#" className="btn btn-primary">View my cart</a>
-                                    </li>
+
                                 </div>
+                                <li>
+                                    <a href="#" className="btn btn-primary">View my cart</a>
+                                    <a href="#" onClick={() => {
+                                        const register_url = "http://localhost:8000/api/cart/clear";
+
+                                        const requestOptions = {
+                                            method: 'POST',
+                                            headers:
+                                            {
+                                                'Content-Type': 'application/json',
+                                                'Accept': 'application/json',
+                                            },
+                                            body: JSON.stringify(
+                                                {
+                                                    user_id: localStorage.getItem('user_id'),
+                                                })
+                                        };
+                                        fetch(register_url, requestOptions).then((response) => response.json()).then((data) => {
+                                            console.log(data);
+                                        }).catch(err => console.log(err));
+                                    }} className="btn btn-danger">Empty Cart</a>
+                                </li>
 
                             </ul>
                         </li>
@@ -165,7 +187,7 @@ export const Home = (props) => {
                         </li>
                         <li className="nav-item">
                             <div style={{ cursor: 'pointer' }} className="nav-link" onClick={() => {
-                                cookies.set('isConnected', false, { path: '/', expires: new Date(Date.now() + 1) });
+                                localStorage.setItem('isConnected', null);
                                 window.location.reload(false);
                             }}>Log out</div>
                         </li>
@@ -202,7 +224,7 @@ export const Home = (props) => {
 
                                             const container = document.getElementById('root');
                                             const root = ReactDOM.createRoot(container);
-                                            root.render(<Article name={d.name} image={d.image} detail={d.detail} price={d.price} stock={d.stock} />);
+                                            root.render(<Article id={d.id} name={d.name} image={d.image} detail={d.detail} price={d.price} stock={d.stock} />);
 
                                         }).catch(err => console.log(err));
 

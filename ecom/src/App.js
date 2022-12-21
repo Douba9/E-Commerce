@@ -14,8 +14,8 @@ function App() {
     setCurrentForm(formName)
   }
 
-  if (cookies.get('isConnected')) {
-    return <Home name={cookies.get('dotcom_user')}/>;
+  if (localStorage.getItem('isConnected') == true) {
+    return <Home />;
   }
   else {
     return (

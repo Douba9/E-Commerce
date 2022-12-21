@@ -37,8 +37,10 @@ export const Login = (props) => {
                     if (message === "Connexion de l'utilisateur avec succès.") {
                         const container = document.getElementById('root');
                         const root = createRoot(container);
-                        cookies.set('isConnected', true, { path: '/' });
-                        root.render(<Home id={data.data.id} token={data.data.token}/>);
+                        // cookies.set('isConnected', true, { path: '/' });
+                        localStorage.setItem('isConnected', true);
+                        localStorage.setItem('user_id', data.data.id);
+                        root.render(<Home token={data.data.token}/>);
                     } else {
                         alert("Impossible de se connecter");
                     }
