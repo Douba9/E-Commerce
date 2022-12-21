@@ -56,7 +56,7 @@
                             <li><a class="nav-link" href="{{ route('roles.index') }}">Gestion des rôles</a></li>
                             <li><a class="nav-link" href="{{ route('products.index') }}">Gestion des produits</a></li>
                             <li><a class="nav-link" href="{{ route('categorie.index') }}">Gestion des catégorie</a></li>
-                            <li><a class="nav-link" href="{{ url('/panier') }}" >Panier</a></li>
+                            <li><a class="nav-link" href="{{ route('shipping.index') }}">Gestion des zones livrable</a></li>
                             <li><a class="nav-link" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
