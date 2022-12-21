@@ -39,5 +39,6 @@
                 {{ $shipping->fast48H }}
             </div>
         </div>
+    <a class="btn btn-info" href="{{ route('shipping.edit',$shipping->id) }}">Editer</a>
     </div>
 @endsection

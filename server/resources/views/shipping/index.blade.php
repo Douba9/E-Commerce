@@ -8,9 +8,7 @@
             <h2>Organisation des zones de livraison</h2>
         </div>
         <div class="pull-right">
-        @can('role-create')
             <a class="btn btn-success" href="{{ route('shipping.create') }}"> Crée une nouvelle zones de livraison</a>
-            @endcan
         </div>
     </div>
 </div>
@@ -41,14 +39,10 @@
         <td>{{ $ship->fast48H }}</td>
         <td>
             <a class="btn btn-info" href="{{ route('shipping.show',$ship->id) }}">Voir</a>
-            @can('role-edit')
                 <a class="btn btn-primary" href="{{ route('shipping.edit',$ship->id) }}">Modifier</a>
-            @endcan
-            @can('role-delete')
                 {!! Form::open(['method' => 'DELETE','route' => ['shipping.destroy', $ship->id],'style'=>'display:inline']) !!}
                     {!! Form::submit('Supprimer', ['class' => 'btn btn-danger']) !!}
                 {!! Form::close() !!}
-            @endcan
         </td>
     </tr>
     @endforeach
