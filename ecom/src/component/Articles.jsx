@@ -8,7 +8,9 @@ export const Article = (props) => {
         <div className="Article">
             <main className="d-flex flex-column align-items-center">
                 <button onClick={() => {
-                    window.location.reload(false);
+                    const container = document.getElementById('root');
+                    const root = createRoot(container);
+                    root.render(<Home />);
                 }} className="btn btn-danger">X</button>
                 <h1>{props.name}</h1>
                 <div id="about" className="display d-flex justify-content-around align-items-center">
@@ -23,7 +25,7 @@ export const Article = (props) => {
                 </div>
                 <div className="control d-flex justify-content-center align-items-center">
                     <span id="price">{props.price}</span>
-                    <input id="quantity" defaultValue={1} type="number"></input>
+                    <input id="quantity" defaultValue={1} max={props.stock} type="number"></input>
                     <button id="basket" className="btn btn-primary" onClick={() => {
                         const register_url = "http://localhost:8000/api/cart/add";
 

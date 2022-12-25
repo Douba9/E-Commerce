@@ -9,10 +9,86 @@
 /* Global */
 
 .App,
-.Home {
+.Home,
+.Article {
   display: flex;
   min-height: 100vh;
   background-image: linear-gradient(79deg #fcfced, #fcedfc 48%, #ebf6ff);
+}
+
+.Home,
+.Article,
+.Cart {
+  flex-direction: column;
+  align-items: center;
+}
+
+nav.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 999999;
+  width: 100%;
+}
+
+footer .row {
+  padding: 1em;
+  align-items: center;
+}
+
+footer .row .socials a {
+  margin: 0 .5em;
+}
+
+[aria-label="breadcrumb"] {
+  position: unset;
+}
+
+#cart .dropdown-menu {
+  width: max-content !important;
+}
+
+#cart .dropdown-menu #list {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+#cart .dropdown-menu #list::-webkit-scrollbar {
+  width: 5px;
+  background: none;
+}
+
+#cart .dropdown-menu #list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--bs-gray-400);
+}
+
+#cart .dropdown-menu #list::-webkit-scrollbar-thumb:active {
+  background-color: var(--bs-gray-500);
+}
+
+#cart a.dropdown-toggle::after {
+  display: none;
+}
+
+#cart img {
+  margin-right: 5px;
+  max-width: 70px;
+}
+
+#cart .cart-item {
+  padding: 5px;
+  width: fit-content;
+}
+
+#cart .cart-item .overview {
+  display: flex;
+  align-items: center;
+}
+
+#cart .cart-item .details {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 /* Login & register */
@@ -66,20 +142,7 @@
 
 /* Home */
 
-.Home {
-  flex-direction: column;
-  align-items: center;
-}
-
-.Home nav {
-  position: sticky;
-  top: 0;
-  z-index: 999999;
-  width: 100%;
-}
-
 .Home main {
-  /* margin-top: 10vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -98,11 +161,55 @@
   border-bottom: 1px solid var(--bs-card-border-color);
 }
 
-.Home footer .row {
-  padding: 1em;
+/* Article */
+
+.Article main {
+  width: 100%;
+}
+
+.Article main h1 {
+  margin-top: 1em;
+}
+
+.Article main .display {
+  margin: 1em;
+  width: 100%;
+}
+
+.Article main .display p,
+.Article main .display img {
+  max-width: 30vw;
+}
+
+.Article main .display table {
+  max-width: 30vw;
+}
+
+.Article main .control {
+  margin: 1em;
+  font-size: x-large;
+}
+
+.Article main .control span:not(#quantity) {
+  margin: 0 1em;
+}
+
+/* Cart */
+
+.Cart #cart-item {
+  position: relative;
+  padding: 1rem;
+  margin: .5rem 0;
+  width: 100%;
+  border: solid 1px var(--bs-gray-300);
+  border-radius: 5px;
+}
+
+.Cart #cart-item .row {
+  justify-content: space-between;
   align-items: center;
 }
 
-.Home footer .row .socials a {
-  margin: 0 .5em;
+.Cart #cart-item img {
+  max-width: 300px;
 }

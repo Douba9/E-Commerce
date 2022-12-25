@@ -102,18 +102,40 @@ export const Home = (props) => {
 
                             setSearch([]);
                         }}>Search</button>
-                        <div style={{ position: 'absolute', top: '50px' }} className="card">
-                            <div>
+                        <div style={{ position: 'absolute', top: '50px' }} className="bg-light" >
+                            <div id="list">
                                 {search.map((s) => (
                                     <div>
                                         <img src={s.image} alt="Product Image" />
-                                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                        <div>
                                             <p className="card-text">{s.name}</p>
                                             <p className="card-text"></p>
-                                            <p className="card-text">{s.price}</p>
+                                            <p id="price" className="card-text">{s.price}</p>
                                         </div>
                                         <p>stock : {s.stock}</p>
-                                        <button className="btn btn-primary">Add to cart</button>
+                                        <input id="quantity" defaultValue={1} max={s.stock} type="number"></input>
+                                        <button className="btn btn-primary" onClick={() => {
+                                            const register_url = "http://localhost:8000/api/cart/add";
+
+                                            const requestOptions = {
+                                                method: 'POST',
+                                                headers:
+                                                {
+                                                    'Content-Type': 'application/json',
+                                                    'Accept': 'application/json',
+                                                },
+                                                body: JSON.stringify(
+                                                    {
+                                                        user_id: localStorage.getItem('user_id'),
+                                                        product_id: s.id,
+                                                        quantity: document.querySelector('#quantity').value,
+                                                    })
+                                            };
+
+                                            fetch(register_url, requestOptions).then((response) => response.json()).then((data) => {
+
+                                            }).catch(err => console.log(err));
+                                        }}>Add to cart</button>
                                     </div>
                                 ))}
                             </div>
@@ -130,7 +152,7 @@ export const Home = (props) => {
                                 <li><h6 className="dropdown-header">Cart</h6></li>
 
                                 <li><hr className="dropdown-divider" /></li>
-                                <li>
+                                <li id="list">
                                     {cartItems.length ? cartItems.map((i) => (
 
                                         <div className="cart-item">
@@ -157,7 +179,11 @@ export const Home = (props) => {
 
                                 </div>
                                 <li>
-                                    <a href="#" className="btn btn-primary">View my cart</a>
+                                    <a onClick={() => {
+                                        const container = document.getElementById('root');
+                                        const root = ReactDOM.createRoot(container);
+                                        root.render(<Cart />);
+                                    }} className="btn btn-primary">View my cart</a>
                                     <a href="#" onClick={() => {
                                         const register_url = "http://localhost:8000/api/cart/clear";
 
@@ -174,7 +200,7 @@ export const Home = (props) => {
                                                 })
                                         };
                                         fetch(register_url, requestOptions).then((response) => response.json()).then((data) => {
-                                            console.log(data);
+                                            //console.log(data);
                                         }).catch(err => console.log(err));
                                     }} className="btn btn-danger">Empty Cart</a>
                                 </li>
