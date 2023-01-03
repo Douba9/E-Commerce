@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('image');
             $table->integer('stock');
             $table->string('categorie_id');
+            $table->decimal('weight',8,2);
             $table->timestamps();
         });
     }

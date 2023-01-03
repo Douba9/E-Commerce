@@ -51,6 +51,11 @@
                 {{ $product->categorie_id }}
             </div>
         </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Weight:</strong>
+                {{ $product->weight }} Kg
+            </div>
+        </div>
     </div>
-    <a href="" class="btn btn-warning">Ajouter au panier</a>
 @endsection

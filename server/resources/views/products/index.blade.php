@@ -32,6 +32,7 @@
             <th>Stock</th>
             <th>Image</th>
             <th>Categorie_id</th>
+            <th>Weight</th>
 
             <th width="280px">Action</th>
         </tr>
@@ -40,10 +41,11 @@
 	        <td>{{ ++$i }}</td>
 	        <td>{{ $product->name }}</td>
 	        <td>{{ $product->detail }}</td>
-	        <td>{{ $product->price }}</td>
+	        <td>{{ $product->price }} $</td>
 	        <td>{{ $product->stock }}</td>
 	        <td>{{ $product->image }}</td>
 	        <td>{{$product->categorie_id}}</td>
+            <td>{{$product->weight}} Kg</td>
 
 	        <td>
                 <form action="{{ route('products.destroy',$product->id) }}" method="POST">
@@ -55,12 +57,6 @@
                     <button type="submit" class="btn btn-danger">supprimer</button>
                     @endcan
                 </form>
-                {{-- <form method="POST" action="{{ route('panier.add') }}">
-                    @csrf
-                    <input type="hidden" name="item_id" value="{{ $product->id }}">
-                    <input type="number" name="quantity" value="1" min="1">
-                    <button type="submit"class="btn btn-warning">Ajouter au panier</button>
-                </form> --}}
 	        </td>
 	    </tr>
 	    @endforeach

@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShippingFeeController;
 use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +37,5 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('products', ProductController::class);
     Route::resource('categorie', CategorieController::class); 
     Route::resource('shipping', ShippingFeeController::class);
+    Route::resource('cart', CartController::class);
 });

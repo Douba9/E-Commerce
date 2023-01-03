@@ -52,9 +52,10 @@ Route::controller(CartController::class)->group(function(){
     Route::post('cart/clear', 'clear'); // Vide le panier
 });
 
+    //Route livraison
 Route::controller(ShippingFeeController::class)->group(function() {
 
-    Route::get('shipping-fee/{id}','show');
+    Route::get('shipping-fee/{id}','show'); // affiche les zones de livraison
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
