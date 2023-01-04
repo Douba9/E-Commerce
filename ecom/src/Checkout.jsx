@@ -6,8 +6,6 @@ import motherboard from './img/motherboard.png';
 import facebook from './img/facebook.svg';
 import linkedin from './img/linkedin.svg';
 import twitter from './img/twitter.svg';
-import paypal from './img/paypal.svg';
-import mastercard from './img/mastercard.svg';
 
 export const Checkout = () => {
     return (
