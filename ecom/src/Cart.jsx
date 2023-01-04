@@ -55,45 +55,6 @@ export const Cart = () => {
                                             <p id="amount">&#215;1</p>
                                         </div>
                                     </div>
-                                    <div className="cart-item">
-                                        <div className="overview">
-                                            <img src={motherboard} alt="products" />
-                                            <div>
-                                                <h6>Lorem Ipsum</h6>
-                                                <p>Lorem ipsum dolor sit amet.</p>
-                                            </div>
-                                        </div>
-                                        <div className="details">
-                                            <p id="price">XXX.XX€</p>
-                                            <p id="amount">&#215;1</p>
-                                        </div>
-                                    </div>
-                                    <div className="cart-item">
-                                        <div className="overview">
-                                            <img src={motherboard} alt="products" />
-                                            <div>
-                                                <h6>Lorem Ipsum</h6>
-                                                <p>Lorem ipsum dolor sit amet.</p>
-                                            </div>
-                                        </div>
-                                        <div className="details">
-                                            <p id="price">XXX.XX€</p>
-                                            <p id="amount">&#215;1</p>
-                                        </div>
-                                    </div>
-                                    <div className="cart-item">
-                                        <div className="overview">
-                                            <img src={motherboard} alt="products" />
-                                            <div>
-                                                <h6>Lorem Ipsum</h6>
-                                                <p>Lorem ipsum dolor sit amet.</p>
-                                            </div>
-                                        </div>
-                                        <div className="details">
-                                            <p id="price">XXX.XX€</p>
-                                            <p id="amount">&#215;1</p>
-                                        </div>
-                                    </div>
                                 </li>
                                 <li><hr className="dropdown-divider" /></li>
                                 <div className="d-flex justify-content-between align-items-center mx-2">
@@ -143,7 +104,7 @@ export const Cart = () => {
                                     </div>
                                     <div className="col">
                                         <div className="details">
-                                            <p id="amount"><strong>Amount:</strong> <span><button id="add" className="btn btn-primary btn-sm">-</button></span>&#215;1<span><button id="remove" className="btn btn-primary btn-sm">+</button></span></p>
+                                            <p id="amount"><strong>Amount:</strong> <span><button id="remove" className="btn btn-primary btn-sm">-</button></span>&#215;1<span><button id="add" className="btn btn-primary btn-sm">+</button></span></p>
                                             <p id="price">XXX.XX€</p>
                                         </div>
                                     </div>
@@ -167,7 +128,7 @@ export const Cart = () => {
                                     </div>
                                     <div className="col">
                                         <div className="details">
-                                            <p id="amount"><strong>Amount:</strong> <span><button id="add" className="btn btn-primary btn-sm">-</button></span>&#215;1<span><button id="remove" className="btn btn-primary btn-sm">+</button></span></p>
+                                            <p id="amount"><strong>Amount:</strong> <span><button id="remove" className="btn btn-primary btn-sm">-</button></span>&#215;1<span><button id="add" className="btn btn-primary btn-sm">+</button></span></p>
                                             <p id="price">XXX.XX€</p>
                                         </div>
                                     </div>

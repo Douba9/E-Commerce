@@ -5,17 +5,18 @@ import { Register } from './Register';
 import { Home } from './Home';
 import { Cart } from './Cart';
 import { Article } from './Article';
+import { Checkout } from './Checkout';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { render } from '@testing-library/react';
 
 // const cookies = new Cookies();
 
 function App() {
-  return (
-    <div className='Home'>
-      <Home/>
-    </div>
-  );
+  // return (
+  //   <div className='Home'>
+  //     <Home/>
+  //   </div>
+  // );
 
   // const [currentForm, setCurrentForm] = useState('register');
   // const toogleForm = (formName) => {
@@ -40,6 +41,12 @@ function App() {
   //     <Cart />
   //   </div>
   // )
+
+  return (
+    <div className='Checkout'>
+      <Checkout/>
+    </div>
+  );
 }
 
 export default App;

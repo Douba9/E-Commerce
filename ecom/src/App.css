@@ -213,3 +213,23 @@ footer .row .socials a {
 .Cart #cart-item img {
   max-width: 300px;
 }
+
+/* Checkout */
+
+.Checkout #cart-item {
+  position: relative;
+  padding: 1rem;
+  margin: .5rem 0;
+  width: 100%;
+  border: solid 1px var(--bs-gray-300);
+  border-radius: 5px;
+}
+
+.Checkout #cart-item .row {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Checkout #cart-item img {
+  max-width: 300px;
+}
