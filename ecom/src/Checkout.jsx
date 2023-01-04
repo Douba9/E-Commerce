@@ -143,39 +143,32 @@ export const Checkout = () => {
                                             <div class="row mb-4">
                                                 <div class="col">
                                                     <div class="form-outline">
-                                                        <input type="text" id="form6Example1" class="form-control" />
-                                                        <label class="form-label" for="form6Example1">First name</label>
+                                                        <label class="form-label" for="first-name">First name*</label>
+                                                        <input type="text" id="first-name" class="form-control" required />
                                                     </div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="form-outline">
-                                                        <input type="text" id="form6Example2" class="form-control" />
-                                                        <label class="form-label" for="form6Example2">Last name</label>
+                                                        <label class="form-label" for="last-name">Last name*</label>
+                                                        <input type="text" id="last-name" class="form-control" required />
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-outline mb-4">
-                                                <input type="text" id="form6Example3" class="form-control" />
-                                                <label class="form-label" for="form6Example3">Company name</label>
+                                                <label class="form-label" for="company-name">Company name</label>
+                                                <input type="text" id="company-name" class="form-control" />
                                             </div>
                                             <div class="form-outline mb-4">
-                                                <input type="text" id="form6Example4" class="form-control" />
-                                                <label class="form-label" for="form6Example4">Address</label>
+                                                <label class="form-label" for="address">Address*</label>
+                                                <input type="text" id="address" class="form-control" required />
                                             </div>
                                             <div class="form-outline mb-4">
-                                                <input type="email" id="form6Example5" class="form-control" />
-                                                <label class="form-label" for="form6Example5">Email</label>
+                                                <label class="form-label" for="email">Email*</label>
+                                                <input type="email" id="email" class="form-control" required />
                                             </div>
                                             <div class="form-outline mb-4">
-                                                <input type="number" id="form6Example6" class="form-control" />
-                                                <label class="form-label" for="form6Example6">Phone</label>
-                                            </div>
-                                            <hr class="my-4" />
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" id="checkoutForm1" />
-                                                <label class="form-check-label" for="checkoutForm1">
-                                                    Shipping address is the same as my billing address
-                                                </label>
+                                                <label class="form-label" for="phone">Phone</label>
+                                                <input type="number" id="phone" class="form-control" />
                                             </div>
                                             <div class="form-check mb-4">
                                                 <input class="form-check-input" type="checkbox" value="" id="checkoutForm2" />
@@ -188,28 +181,28 @@ export const Checkout = () => {
                                             <div class="row mb-4">
                                                 <div class="col">
                                                     <div class="form-outline">
-                                                        <input type="text" id="formNameOnCard" class="form-control" />
-                                                        <label class="form-label" for="formNameOnCard">Name on card</label>
+                                                        <label class="form-label" for="card-owner">Name on card</label>
+                                                        <input type="text" id="card-owner" class="form-control" required />
                                                     </div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="form-outline">
-                                                        <input type="text" id="formCardNumber" class="form-control" />
-                                                        <label class="form-label" for="formCardNumber">Credit card number</label>
+                                                        <label class="form-label" for="card-number">Credit card number</label>
+                                                        <input type="text" id="card-number" class="form-control" required />
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row mb-4">
                                                 <div class="col-3">
                                                     <div class="form-outline">
-                                                        <input type="text" id="formExpiration" class="form-control" />
-                                                        <label class="form-label" for="formExpiration">Expiration</label>
+                                                        <label class="form-label" for="card-expiration">Expiration</label>
+                                                        <input type="text" id="card-expiration" class="form-control" required />
                                                     </div>
                                                 </div>
                                                 <div class="col-3">
                                                     <div class="form-outline">
-                                                        <input type="text" id="formCVV" class="form-control" />
-                                                        <label class="form-label" for="formCVV">CVV</label>
+                                                        <label class="form-label" for="card-cvv">CVV</label>
+                                                        <input type="text" id="card-cvv" class="form-control" required />
                                                     </div>
                                                 </div>
                                             </div>
@@ -229,11 +222,11 @@ export const Checkout = () => {
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                                 Products
-                                                <span>$XXX.XX</span>
+                                                <span>XXX.XX€</span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center px-0">
                                                 Shipping
-                                                <span>Gratis</span>
+                                                <span>XXX.XX€</span>
                                             </li>
                                             <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                                                 <div>
@@ -242,7 +235,7 @@ export const Checkout = () => {
                                                         <p class="mb-0">(including VAT)</p>
                                                     </strong>
                                                 </div>
-                                                <span><strong>$XXX.XX</strong></span>
+                                                <span><strong>XXX.XX€</strong></span>
                                             </li>
                                         </ul>
                                     </div>
