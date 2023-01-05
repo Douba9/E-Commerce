@@ -2,8 +2,19 @@ import React from "react";
 import { Home } from './Home';
 import { createRoot } from 'react-dom/client';
 
+const EasyPost = require('@easypost/api');
 
 export const Article = (props) => {
+
+    const api = new EasyPost("EZTK1c05a995fe6642a68565d1c6724bc65eboO0UFyMgjcPtK6sKQOpOw");
+
+    const shipment = new api.Shipment({
+        to_address: "France",
+        from_address: "Algérie",
+    });
+
+    shipment.save().then(console.log);
+
     return (
         <div className="Article">
             <main className="d-flex flex-column align-items-center">
