@@ -9,6 +9,15 @@ import linkedin from './img/linkedin.svg';
 import twitter from './img/twitter.svg';
 
 export const Checkout = () => {
+    const cookies = new Cookies();
+    const handleSubmit = (e) => {
+        for (let i = 0; i < 6; i++) {
+            if (e.target[i].value !== "") {
+                cookies.set(e.target[i].id, e.target[i].value);
+            }
+        }
+    };
+
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-light">
@@ -140,7 +149,7 @@ export const Checkout = () => {
                                         <h5 className="mb-0">Biling details</h5>
                                     </div>
                                     <div className="card-body">
-                                        <form id="checkoutform">
+                                        <form onSubmit={handleSubmit}>
                                             <div className="row mb-4">
                                                 <div className="col">
                                                     <div className="form-outline">
@@ -170,12 +179,6 @@ export const Checkout = () => {
                                             <div className="form-outline mb-4">
                                                 <label className="form-label" htmlFor="phone">Phone</label>
                                                 <input type="number" id="phone" className="form-control" />
-                                            </div>
-                                            <div className="form-check mb-4">
-                                                <input className="form-check-input" type="checkbox" value="" id="checkoutForm2" />
-                                                <label className="form-check-label" htmlFor="checkoutForm2">
-                                                    Save this information for next time
-                                                </label>
                                             </div>
                                             <hr className="my-4" />
                                             <h5 className="mb-4">Payment</h5>
@@ -266,14 +269,6 @@ export const Checkout = () => {
                     </div>
                 </div>
             </footer>
-            <script>{
-                document.getElementById("checkoutform").onsubmit = () => {
-                    document.cookie = "";
-                    for (let input in document.getElementById("checkoutform").getElementsByTagName("input")) {
-                        document.cookie = document.cookie + input.id + "=" + input.value + ";"
-                    }
-                }
-            }</script>
         </>
     );
 };
