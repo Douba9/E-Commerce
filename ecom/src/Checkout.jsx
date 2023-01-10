@@ -11,7 +11,7 @@ import twitter from './img/twitter.svg';
 export const Checkout = () => {
     const cookies = new Cookies();
     const handleSubmit = (e) => {
-        for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < 10; i++) {
             if (e.target[i].value !== "") {
                 cookies.set(e.target[i].id, e.target[i].value);
             }

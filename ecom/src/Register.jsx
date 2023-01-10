@@ -30,7 +30,7 @@ export const Register = (props) => {
                 </div>
                 <div>
                     <label htmlFor="password"> Password</label>
-                    <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="*******" id="password" name="password"></input>
+                    <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="*******" id="password" name="password" minLength="8"></input>
                 </div>
                 <button type="submit">Register</button>
             </form>
