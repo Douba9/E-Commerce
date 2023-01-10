@@ -1,4 +1,5 @@
 import React from 'react';
+import Cookies from 'universal-cookie';
 import cart from './img/icon-cart.svg';
 import logo from './img/logo.png';
 import products from './img/products.png';
@@ -132,107 +133,107 @@ export const Checkout = () => {
                 </div>
                 <div id="billing" className="container mt-3 d-flex flex-column align-items-center">
                     <section>
-                        <div class="row">
-                            <div class="col-md-8 mb-4">
-                                <div class="card mb-4">
-                                    <div class="card-header py-3">
-                                        <h5 class="mb-0">Biling details</h5>
+                        <div className="row">
+                            <div className="col-md-8 mb-4">
+                                <div className="card mb-4">
+                                    <div className="card-header py-3">
+                                        <h5 className="mb-0">Biling details</h5>
                                     </div>
-                                    <div class="card-body">
-                                        <form>
-                                            <div class="row mb-4">
-                                                <div class="col">
-                                                    <div class="form-outline">
-                                                        <label class="form-label" for="first-name">First name*</label>
-                                                        <input type="text" id="first-name" class="form-control" required />
+                                    <div className="card-body">
+                                        <form id="checkoutform">
+                                            <div className="row mb-4">
+                                                <div className="col">
+                                                    <div className="form-outline">
+                                                        <label className="form-label" htmlFor="first-name">First name*</label>
+                                                        <input type="text" id="first-name" className="form-control" required />
                                                     </div>
                                                 </div>
-                                                <div class="col">
-                                                    <div class="form-outline">
-                                                        <label class="form-label" for="last-name">Last name*</label>
-                                                        <input type="text" id="last-name" class="form-control" required />
+                                                <div className="col">
+                                                    <div className="form-outline">
+                                                        <label className="form-label" htmlFor="last-name">Last name*</label>
+                                                        <input type="text" id="last-name" className="form-control" required />
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="form-outline mb-4">
-                                                <label class="form-label" for="company-name">Company name</label>
-                                                <input type="text" id="company-name" class="form-control" />
+                                            <div className="form-outline mb-4">
+                                                <label className="form-label" htmlFor="company-name">Company name</label>
+                                                <input type="text" id="company-name" className="form-control" />
                                             </div>
-                                            <div class="form-outline mb-4">
-                                                <label class="form-label" for="address">Address*</label>
-                                                <input type="text" id="address" class="form-control" required />
+                                            <div className="form-outline mb-4">
+                                                <label className="form-label" htmlFor="address">Address*</label>
+                                                <input type="text" id="address" className="form-control" required />
                                             </div>
-                                            <div class="form-outline mb-4">
-                                                <label class="form-label" for="email">Email*</label>
-                                                <input type="email" id="email" class="form-control" required />
+                                            <div className="form-outline mb-4">
+                                                <label className="form-label" htmlFor="email">Email*</label>
+                                                <input type="email" id="email" className="form-control" required />
                                             </div>
-                                            <div class="form-outline mb-4">
-                                                <label class="form-label" for="phone">Phone</label>
-                                                <input type="number" id="phone" class="form-control" />
+                                            <div className="form-outline mb-4">
+                                                <label className="form-label" htmlFor="phone">Phone</label>
+                                                <input type="number" id="phone" className="form-control" />
                                             </div>
-                                            <div class="form-check mb-4">
-                                                <input class="form-check-input" type="checkbox" value="" id="checkoutForm2" />
-                                                <label class="form-check-label" for="checkoutForm2">
+                                            <div className="form-check mb-4">
+                                                <input className="form-check-input" type="checkbox" value="" id="checkoutForm2" />
+                                                <label className="form-check-label" htmlFor="checkoutForm2">
                                                     Save this information for next time
                                                 </label>
                                             </div>
-                                            <hr class="my-4" />
-                                            <h5 class="mb-4">Payment</h5>
-                                            <div class="row mb-4">
-                                                <div class="col">
-                                                    <div class="form-outline">
-                                                        <label class="form-label" for="card-owner">Name on card</label>
-                                                        <input type="text" id="card-owner" class="form-control" required />
+                                            <hr className="my-4" />
+                                            <h5 className="mb-4">Payment</h5>
+                                            <div className="row mb-4">
+                                                <div className="col">
+                                                    <div className="form-outline">
+                                                        <label className="form-label" htmlFor="card-owner">Name on card</label>
+                                                        <input type="text" id="card-owner" className="form-control" required />
                                                     </div>
                                                 </div>
-                                                <div class="col">
-                                                    <div class="form-outline">
-                                                        <label class="form-label" for="card-number">Credit card number</label>
-                                                        <input type="text" id="card-number" class="form-control" required />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-4">
-                                                <div class="col-3">
-                                                    <div class="form-outline">
-                                                        <label class="form-label" for="card-expiration">Expiration</label>
-                                                        <input type="text" id="card-expiration" class="form-control" required />
-                                                    </div>
-                                                </div>
-                                                <div class="col-3">
-                                                    <div class="form-outline">
-                                                        <label class="form-label" for="card-cvv">CVV</label>
-                                                        <input type="text" id="card-cvv" class="form-control" required />
+                                                <div className="col">
+                                                    <div className="form-outline">
+                                                        <label className="form-label" htmlFor="card-number">Credit card number</label>
+                                                        <input type="text" id="card-number" className="form-control" required />
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button class="btn btn-primary btn-lg btn-block" type="submit">
+                                            <div className="row mb-4">
+                                                <div className="col-3">
+                                                    <div className="form-outline">
+                                                        <label className="form-label" htmlFor="card-expiration">Expiration</label>
+                                                        <input type="text" id="card-expiration" className="form-control" required />
+                                                    </div>
+                                                </div>
+                                                <div className="col-3">
+                                                    <div className="form-outline">
+                                                        <label className="form-label" htmlFor="card-cvv">CVV</label>
+                                                        <input type="text" id="card-cvv" className="form-control" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button className="btn btn-primary btn-lg btn-block" type="submit">
                                                 Pay
                                             </button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 mb-4">
-                                <div class="card mb-4">
-                                    <div class="card-header py-3">
-                                        <h5 class="mb-0">Summary</h5>
+                            <div className="col-md-4 mb-4">
+                                <div className="card mb-4">
+                                    <div className="card-header py-3">
+                                        <h5 className="mb-0">Summary</h5>
                                     </div>
-                                    <div class="card-body">
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                                    <div className="card-body">
+                                        <ul className="list-group list-group-flush">
+                                            <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
                                                 Products
                                                 <span>XXX.XX€</span>
                                             </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                            <li className="list-group-item d-flex justify-content-between align-items-center px-0">
                                                 Shipping
                                                 <span>XXX.XX€</span>
                                             </li>
-                                            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                            <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
                                                 <div>
                                                     <strong>Total amount</strong>
                                                     <strong>
-                                                        <p class="mb-0">(including VAT)</p>
+                                                        <p className="mb-0">(including VAT)</p>
                                                     </strong>
                                                 </div>
                                                 <span><strong>XXX.XX€</strong></span>
@@ -265,6 +266,14 @@ export const Checkout = () => {
                     </div>
                 </div>
             </footer>
+            <script>{
+                document.getElementById("checkoutform").onsubmit = () => {
+                    document.cookie = "";
+                    for (let input in document.getElementById("checkoutform").getElementsByTagName("input")) {
+                        document.cookie = document.cookie + input.id + "=" + input.value + ";"
+                    }
+                }
+            }</script>
         </>
     );
 };
