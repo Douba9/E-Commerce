@@ -12,6 +12,7 @@
     "bootstrap": "^5.2.3",
     "crypto": "^1.0.1",
     "crypto-browserify": "^3.12.0",
+    "easypost": "^0.1.1",
     "os": "^0.1.2",
     "os-browserify": "^0.3.0",
     "polyfills": "^2.1.1",
