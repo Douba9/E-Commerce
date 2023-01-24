@@ -52,7 +52,7 @@ function SearchBar() {
                 {searchResults.length > 0  && searchTerm.length > 0 &&
                     <div style={style.preview} id='preview'>
                         {searchResults.map(item => (
-                            <div style={style.items} key={item.id}>
+                            <div onClick={() => window.location = `/product/${item.name.toLowerCase().replace(/ /g, '-')}`} style={style.items} key={item.id}>
                                 <h2>{item.name}</h2>
                                 <img src={item.image} />
                                 <p>Price: {item.price} $</p>

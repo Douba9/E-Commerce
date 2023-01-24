@@ -15,8 +15,8 @@ import {
 import { loadStripe } from "@stripe/stripe-js"
 
 const mailgun = require("mailgun-js");
-const DOMAIN = 'sandboxcc74cdb0565940b496dae5a7e438bd9b.mailgun.org';
-const apiKey = "fccab358716e02e7914da798864b8d33-4c2b2223-842e4af7"
+const DOMAIN = 'sandboxd0167f886330422d9695d2dc37671fc2.mailgun.org';
+const apiKey = "a591df71b1ad6170744bbb748b6a85a3-c9746cf8-42c96271"
 const mg = mailgun({ apiKey: apiKey, domain: DOMAIN });
 
 
@@ -103,21 +103,14 @@ const Checkout = ({ context }) => {
 
     const complet = [order, cart, input]
 
-
-
-    const cartExtract = JSON.stringify(cart);
-
-
     const items = complet[1].map(item => {
-      return { name: item.name, price: item.price };
+      return { name: item.name, price: item.price, quantity: item.quantity };
     });
     console.log(items);
 
-    console.log(complet);
-
     const tableRows = complet[1].map((item) => {
       return `<tr>
-      <td>${item.name}</td>
+      <td>${item.name}&emsp;${item.quantity}/pcs</td>
       <td class="alignright">$ ${item.price}</td>
     </tr>`
     });
@@ -126,7 +119,7 @@ const Checkout = ({ context }) => {
 
     //mailer
     const data = {
-      from: 'Excited User cousicousa59@gmail.com',
+      from: 'Excited User bourneJason7@proton.me',
       to: 'cousicousa59@gmail.com',
       subject: order.email,
       html:
@@ -198,19 +191,15 @@ const Checkout = ({ context }) => {
                     <table width="100%" cellpadding="0" cellspacing="0" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
                       <h1 class="aligncenter" style="font-family: 'Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif; box-sizing: border-box; font-size: 32px; color: #000; line-height: 1.2em; font-weight: 500; text-align: center; margin: 40px 0 0;" align="center"> ${total} $</h1>
                     </td>
-                    </tr><tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
+                    </tr>
+                    
+                    <tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="content-block" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 0 0 20px;" valign="top">
                     </td>
                       </tr><tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="content-block aligncenter" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: center; margin: 0; padding: 0 0 20px;" align="center" valign="top">
-                        <table class="invoice" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; text-align: left; width: 80%; margin: 40px auto;"><tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 5px 0;" valign="top">Nom :  ${input.name}<br style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;" />Invoice #12345<br style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;" />Lien de paiment : ${input.crypto_link}</td>
-      
-      
-                        </tr><tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 5px 0;" valign="top">
-                          <table class="invoice-items" cellpadding="0" cellspacing="0" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; width: 100%; margin: 0;">
-      
-      
+                        <table class="invoice" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; text-align: left; width: 80%; margin: 40px auto;"><tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 5px 0;" valign="top">Nom :  ${input.name}<br/> Email : ${input.email} <br/> Lien de la blockChaine : ${input.crypto_link} <br/> Rue : ${input.street}<br/> Ville : ${input.city} <br/> Pays : ${input.state}<br/> Code Postale : ${input.postal_code} <br/> Information supplémentaire : ${input.more_information} <br/><br/>Contenue du Panier : <br style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;" />
+
                             ${tableContent}
-      
-      
+
                             <tr class="total" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="alignright" width="80%" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 2px; border-top-color: #333; border-top-style: solid; border-bottom-color: #333; border-bottom-width: 2px; border-bottom-style: solid; font-weight: 700; margin: 0; padding: 5px 0;" align="right" valign="top">Total</td>
                               <td class="alignright" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: right; border-top-width: 2px; border-top-color: #333; border-top-style: solid; border-bottom-color: #333; border-bottom-width: 2px; border-bottom-style: solid; font-weight: 700; margin: 0; padding: 5px 0;" align="right" valign="top">${total} $</td>
                             </tr></table></td>
@@ -219,7 +208,7 @@ const Checkout = ({ context }) => {
                         <a href="http://www.mailgun.com" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; color: #348eda; text-decoration: underline; margin: 0;">View in browser</a>
                       </td>
                       </tr><tr style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;"><td class="content-block aligncenter" style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; text-align: center; margin: 0; padding: 0 0 20px;" align="center" valign="top">
-                        Acme Inc. 2023 Trevor Familly CBDax Facture
+                        Acme Inc. 2023 DoubaCorp Facture
                       </td>
                       </tr></table></td>
                   </tr></table>
@@ -311,13 +300,13 @@ const Checkout = ({ context }) => {
                       onChange={onChange}
                       value={input.crypto_link}
                       name="crypto_link"
-                      placeholder="crypto_link"
+                      placeholder="Proof of your paiement : link to blockchaine"
                     />
                     <Input
                       onChange={onChange}
                       value={input.name}
                       name="name"
-                      placeholder="Owner name"
+                      placeholder="Complet name"
                     />
                     {/* <CardElement className="mt-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" /> */}
                     <Input
